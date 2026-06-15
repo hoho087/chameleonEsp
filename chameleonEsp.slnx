@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="chameleonEsp/chameleonEsp.vcxproj" Id="ae472d23-80de-4a8e-8f57-e3a90ea14780" />
+</Solution>
