@@ -21,6 +21,7 @@ public:
 		SDK::FVector Location;
 	};
 	std::vector<PlayerInfo> PlayerInfos;
+	std::unordered_set<SDK::AActor*> forcedVisibleActors;
 	void Init();
 	void DumpBones();
 };

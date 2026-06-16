@@ -67,6 +67,20 @@ void CheatManager::Init()
 		if (!g_OnRepBodyVisibilityFunc)
 			g_OnRepBodyVisibilityFunc = SDK::ABP_FirstPersonCharacter_cLeon_Character_C::StaticClass()->GetFunction("BP_FirstPersonCharacter_cLeon_Character_C", "OnRep_BodyVisibility");
 
+		// Force character visibility on/off, tracking who we changed so we can restore them
+		if (cfg->bForceCharacterVisibility && !BaseClass->BodyVisibility)
+		{
+			BaseClass->BodyVisibility = true;
+			BaseClass->OnRep_BodyVisibility();
+			forcedVisibleActors.insert(obj);
+		}
+		else if (!cfg->bForceCharacterVisibility && forcedVisibleActors.count(obj))
+		{
+			BaseClass->BodyVisibility = false;
+			BaseClass->OnRep_BodyVisibility();
+			forcedVisibleActors.erase(obj);
+		}
+
 		if (cfg->bDumpBones) {
 			DumpBones();
 			cfg->bDumpBones = false;

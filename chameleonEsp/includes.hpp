@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <vector>
+#include <unordered_set>
 #include <direct.h>
 #include <Psapi.h>
 #include <d3d12.h>
