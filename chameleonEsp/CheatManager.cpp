@@ -12,6 +12,7 @@ void CheatManager::Init()
 	OwningGameInstance = gWorld->OwningGameInstance;
 	if (!OwningGameInstance) return;
 
+	if (OwningGameInstance->LocalPlayers.Num() <= 0) return;
 	LocalPlayer = OwningGameInstance->LocalPlayers[0];
 	if (!LocalPlayer) return;
 

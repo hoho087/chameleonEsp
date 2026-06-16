@@ -26,9 +26,6 @@ namespace Process {
     WNDPROC WndProc;
     int WindowWidth;
     int WindowHeight;
-    LPCSTR Title;
-    LPCSTR ClassName;
-    LPCSTR Path;
 }
 
 namespace DirectX12Interface {
@@ -371,18 +368,6 @@ void InitProcess(bool *WindowFocus)
         GetWindowRect(Process::Hwnd, &TempRect);
         Process::WindowWidth = TempRect.right - TempRect.left;
         Process::WindowHeight = TempRect.bottom - TempRect.top;
-
-        char TempTitle[MAX_PATH];
-        GetWindowTextA(Process::Hwnd, TempTitle, sizeof(TempTitle));
-        Process::Title = TempTitle;
-
-        char TempClassName[MAX_PATH];
-        GetClassNameA(Process::Hwnd, TempClassName, sizeof(TempClassName));
-        Process::ClassName = TempClassName;
-
-        char TempPath[MAX_PATH];
-        GetModuleFileNameExA(Process::Handle, NULL, TempPath, sizeof(TempPath));
-        Process::Path = TempPath;
 
         *WindowFocus = true;
     }
