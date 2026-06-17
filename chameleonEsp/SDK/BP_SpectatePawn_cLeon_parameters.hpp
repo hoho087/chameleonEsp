@@ -12,9 +12,9 @@
 
 #include "EnhancedInput_structs.hpp"
 #include "InputCore_structs.hpp"
+#include "EN_cLeonGameMode_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "Engine_structs.hpp"
-#include "EN_cLeonGameMode_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -133,7 +133,7 @@ public:
 DUMPER7_ASSERTS_BP_SpectatePawn_cLeon_C_InpActEvt_Five_K2Node_InputKeyEvent_1;
 
 // Function BP_SpectatePawn_cLeon.BP_SpectatePawn_cLeon_C.ExecuteUbergraph_BP_SpectatePawn_cLeon
-// 0x0538 (0x0538 - 0x0000)
+// 0x0548 (0x0548 - 0x0000)
 struct BP_SpectatePawn_cLeon_C_ExecuteUbergraph_BP_SpectatePawn_cLeon final
 {
 public:
@@ -197,9 +197,8 @@ public:
 	bool                                          CallFunc_IsLocallyControlled_ReturnValue;          // 0x0172(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_173[0x5];                                      // 0x0173(0x0005)(Fixing Size After Last Property [ Dumper-7 ])
 	class AController*                            K2Node_Event_NewController;                        // 0x0178(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          Temp_bool_Has_Been_Initd_Variable;                 // 0x0180(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	bool                                          Temp_bool_Variable;                                // 0x0181(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_182[0x6];                                      // 0x0182(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          Temp_bool_Variable;                                // 0x0180(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_181[0x7];                                      // 0x0181(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	double                                        Temp_real_Variable;                                // 0x0188(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                        Temp_real_Variable_1;                              // 0x0190(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_IsLocallyControlled_ReturnValue_1;        // 0x0198(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -208,8 +207,9 @@ public:
 	int32                                         CallFunc_Array_Length_ReturnValue_1;               // 0x01B0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_1B4[0x4];                                      // 0x01B4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class UInputAction*                           Temp_object_Variable;                              // 0x01B8(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-	bool                                          CallFunc_Not_PreBool_ReturnValue;                  // 0x01C0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_1C1[0x7];                                      // 0x01C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          Temp_bool_Has_Been_Initd_Variable;                 // 0x01C0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          CallFunc_Not_PreBool_ReturnValue;                  // 0x01C1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_1C2[0x6];                                      // 0x01C2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FInputActionValue                      K2Node_EnhancedInputActionEvent_ActionValue;       // 0x01C8(0x0020)(NoDestructor)
 	float                                         K2Node_EnhancedInputActionEvent_ElapsedTime;       // 0x01E8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	float                                         K2Node_EnhancedInputActionEvent_TriggeredTime;     // 0x01EC(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
@@ -272,7 +272,11 @@ public:
 	bool                                          K2Node_DynamicCast_bSuccess_5;                     // 0x0518(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_519[0x7];                                      // 0x0519(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<int32>                                 K2Node_MakeArray_Array;                            // 0x0520(0x0010)(ConstParm, ReferenceParm)
-	float                                         K2Node_VariableSet_MaxSpeed_ImplicitCast;          // 0x0530(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	class APlayerController*                      CallFunc_GetPlayerController_ReturnValue;          // 0x0530(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	class ABP_PlayerController_cLeon_C*           K2Node_DynamicCast_AsBP_Player_Controller_C_Leon_1; // 0x0538(0x0008)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	bool                                          K2Node_DynamicCast_bSuccess_6;                     // 0x0540(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_541[0x3];                                      // 0x0541(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         K2Node_VariableSet_MaxSpeed_ImplicitCast;          // 0x0544(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_BP_SpectatePawn_cLeon_C_ExecuteUbergraph_BP_SpectatePawn_cLeon;
 

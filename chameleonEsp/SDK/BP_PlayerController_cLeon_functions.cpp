@@ -64,6 +64,26 @@ void ABP_PlayerController_cLeon_C::ReceiveBeginPlay()
 }
 
 
+// Function BP_PlayerController_cLeon.BP_PlayerController_cLeon_C.OnNamePlateVisibilityChange
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                                    Visibility                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_PlayerController_cLeon_C::OnNamePlateVisibilityChange(bool Visibility)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_PlayerController_cLeon_C", "OnNamePlateVisibilityChange");
+
+	Params::BP_PlayerController_cLeon_C_OnNamePlateVisibilityChange Parms{};
+
+	Parms.Visibility = Visibility;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function BP_PlayerController_cLeon.BP_PlayerController_cLeon_C.InpActEvt_Three_K2Node_InputKeyEvent_1
 // (BlueprintEvent)
 // Parameters:

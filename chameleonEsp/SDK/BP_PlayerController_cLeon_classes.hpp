@@ -31,11 +31,13 @@ public:
 	TMulticastInlineDelegate<void(bool Visibility)> NamePlateVisibilityChange;                       // 0x07A0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	bool                                          IsPlayMovie;                                       // 0x07B0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          WatchRankingVisibility;                            // 0x07B1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          GlobalNameplateVisibility;                         // 0x07B2(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void TeleportMovie();
 	void ReceiveTick(float DeltaSeconds_ReceiveTick);
 	void ReceiveBeginPlay();
+	void OnNamePlateVisibilityChange(bool Visibility);
 	void InpActEvt_Three_K2Node_InputKeyEvent_1(const struct FKey& Key);
 	void InpActEvt_Six_K2Node_InputKeyEvent_0(const struct FKey& Key);
 	void GetPawnCentorLocation(struct FVector* ReturnLocation);
