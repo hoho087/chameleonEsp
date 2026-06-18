@@ -178,7 +178,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT
             ImGui_ImplDX12_CreateDeviceObjects();
             //ImGui::GetIO().ImeWindowHandle = Process::Hwnd;
 			ImGui::GetMainViewport()->PlatformHandleRaw = Process::Hwnd;
-            // Only hook WndProc once — on resize init reruns, Process::WndProc already holds
+            // Only hook WndProc once - on resize init reruns, Process::WndProc already holds
             // the original game proc. Hooking again would overwrite it with our own hook,
             // causing CallWindowProc -> WndProc -> CallWindowProc infinite recursion.
             if (!Process::WndProc)
@@ -461,9 +461,7 @@ DWORD MainThread(HMODULE Module)
 
     MH_EnableHook(MH_ALL_HOOKS);
 
-    // Keep our own thread alive to watch for the unload hotkey. Tearing down and
-    // ejecting must happen from a thread we own (not the game's render thread that
-    // runs the hooks), which is exactly this one.
+	// poll for the END key to be pressed to unload the DLL
     while (bRunning)
     {
         if (GetAsyncKeyState(VK_END) & 1)
@@ -472,11 +470,9 @@ DWORD MainThread(HMODULE Module)
     }
 
     Unload();
-    // Release our own reference and exit this thread atomically. Under LoadLibrary
-    // injection this unmaps the module; under manual mapping FreeLibrary no-ops
-    // (the loader doesn't know us) but the thread still exits cleanly.
     FreeLibraryAndExitThread(Process::Module, 0);
-    return 0; // not reached
+
+    return 0;
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved)
@@ -484,9 +480,6 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved)
     switch (reason)
     {
     case DLL_PROCESS_ATTACH:
-        // We never handle the per-thread notifications, and a UE game spawns many
-        // threads — skip the loader-lock round-trip for each one. No-ops harmlessly
-        // under manual mapping (the loader isn't tracking this module anyway).
         DisableThreadLibraryCalls(hModule);
         Process::Module = hModule;
         CreateThread(0, 0, (LPTHREAD_START_ROUTINE)MainThread, hModule, 0, 0);
