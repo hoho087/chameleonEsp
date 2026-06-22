@@ -30,6 +30,26 @@ void UWBP_NavInputTextBlock_C::TextNumUpdate()
 }
 
 
+// Function WBP_NavInputTextBlock.WBP_NavInputTextBlock_C.SetInputText
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const class FText&                      InText                                                 (BlueprintVisible, BlueprintReadOnly, Parm)
+
+void UWBP_NavInputTextBlock_C::SetInputText(const class FText& InText)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_NavInputTextBlock_C", "SetInputText");
+
+	Params::WBP_NavInputTextBlock_C_SetInputText Parms{};
+
+	Parms.InText = std::move(InText);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function WBP_NavInputTextBlock.WBP_NavInputTextBlock_C.SetEditableText
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:

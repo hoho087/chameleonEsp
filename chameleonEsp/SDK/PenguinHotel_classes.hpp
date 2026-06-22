@@ -696,13 +696,13 @@ public:
 DUMPER7_ASSERTS_UDynamicCapsulePhysicsDrivenLibrary;
 
 // Class PenguinHotel.EOSPlayerReportAsyncAction
-// 0x0060 (0x0090 - 0x0030)
+// 0x0070 (0x00A0 - 0x0030)
 class UEOSPlayerReportAsyncAction final : public UBlueprintAsyncActionBase
 {
 public:
 	TMulticastInlineDelegate<void(const struct FEOSPlayerReportResult& Result)> OnFinished;          // 0x0030(0x0010)(ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic)
 	TWeakObjectPtr<class UObject>                 WorldContextObject;                                // 0x0040(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_48[0x48];                                      // 0x0048(0x0048)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_48[0x58];                                      // 0x0048(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UEOSPlayerReportAsyncAction* SendEOSPlayerReport(class UObject* WorldContextObject_0, const class FString& ReporterProductUserId, const class FString& ReportedProductUserId, EEOSPlayerReportCategory Category, const class FString& Message, const class FString& ContextJson);

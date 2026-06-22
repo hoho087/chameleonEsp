@@ -16,6 +16,15 @@
 SDK_NAMESPACE_START
 SDK_PARAM_NAMESPACE_START
 
+// Function WBP_NavInputTextBlock.WBP_NavInputTextBlock_C.SetInputText
+// 0x0010 (0x0010 - 0x0000)
+struct WBP_NavInputTextBlock_C_SetInputText final
+{
+public:
+	class FText                                   InText;                                            // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm)
+};
+DUMPER7_ASSERTS_WBP_NavInputTextBlock_C_SetInputText;
+
 // Function WBP_NavInputTextBlock.WBP_NavInputTextBlock_C.SetEditableText
 // 0x0010 (0x0010 - 0x0000)
 struct WBP_NavInputTextBlock_C_SetEditableText final

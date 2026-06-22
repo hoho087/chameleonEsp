@@ -174,6 +174,20 @@ void UWBP_VoiceChatUserSettings_C::BndEvt__WBP_VoiceChatUserSettings_WBP_NavSlid
 }
 
 
+// Function WBP_VoiceChatUserSettings.WBP_VoiceChatUserSettings_C.BndEvt__WBP_VoiceChatUserSettings_LongTapButton_OnAnimation_Kick_1_K2Node_ComponentBoundEvent_2_PushEnd__DelegateSignature
+// (BlueprintEvent)
+
+void UWBP_VoiceChatUserSettings_C::BndEvt__WBP_VoiceChatUserSettings_LongTapButton_OnAnimation_Kick_1_K2Node_ComponentBoundEvent_2_PushEnd__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_VoiceChatUserSettings_C", "BndEvt__WBP_VoiceChatUserSettings_LongTapButton_OnAnimation_Kick_1_K2Node_ComponentBoundEvent_2_PushEnd__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function WBP_VoiceChatUserSettings.WBP_VoiceChatUserSettings_C.BndEvt__WBP_VoiceChatUserSettings_LongTapButton_OnAnimation_K2Node_ComponentBoundEvent_1_PushEnd__DelegateSignature
 // (BlueprintEvent)
 

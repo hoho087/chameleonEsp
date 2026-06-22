@@ -41,6 +41,7 @@ public:
 
 public:
 	void TextNumUpdate();
+	void SetInputText(const class FText& InText);
 	void SetEditableText(const class FText& InText);
 	void PreConstruct(bool IsDesignTime_PreConstruct);
 	class FString GetNumerText(const class FText& InText);
