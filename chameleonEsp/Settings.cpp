@@ -18,6 +18,9 @@ void Settings::InitializeSettings()
 	this->bEnemyOnly = false;
 	this->bForceCharacterVisibility = false;
 	this->bNoGunCooldown = false;
+	this->bAntiDetection = false;
+	this->bMagnetEnabled = false;
+	this->bPreventKick = false;
 	float colVisible[4]    = { 0.0f,  1.0f,  0.0f, 1.0f };
 	float colNotVisible[4] = { 0.706f, 0.392f, 1.0f, 1.0f };
 	float colLines[4]      = { 1.0f,  1.0f,  1.0f, 1.0f };
@@ -53,6 +56,7 @@ void Settings::LoadSettings()
 			fclose(file);
 
 			// Never restore the transient command flag from disk - it is not a setting.
+			cfg->bMagnetEnabled = false;
 			cfg->bDumpBones = false;
 		}
 		else

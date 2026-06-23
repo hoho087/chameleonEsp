@@ -23,12 +23,12 @@ void CheatManager::Init()
 	{
 		if (!Players.IsValidIndex(i)) continue;
 
-		obj = Players[i];
-		if (!obj) continue;
-		BaseClass = (SDK::ABP_FirstPersonCharacter_cLeon_Character_C*)obj;
+		objActor = Players[i];
+		if (!objActor) continue;
+		BaseClass = (SDK::ABP_FirstPersonCharacter_cLeon_Character_C*)objActor;
 		if (!BaseClass) continue;
 
-		currentActors.insert(obj);
+		currentActors.insert(objActor);
 
 		// Skip dead/ragdolled corpses (see IsDead for why the obvious flags don't work).
 		if (IsDead())
@@ -36,22 +36,39 @@ void CheatManager::Init()
 
 		const auto Location = BaseClass->K2_GetActorLocation();
 		const std::string PlayerName = ResolvePlayerName();
-		const bool IsVisible = PlayerController->LineOfSightTo(obj, { 0,0,0 }, false); // visible check
+		const bool IsVisible = PlayerController->LineOfSightTo(objActor, { 0,0,0 }, false); // visible check
 
-		if (obj == MyPlayer)
+		if (objActor == MyPlayer)
 		{
-			if (cfg->bNoGunCooldown)
+			// Hunter
+			if (IsHunter())
 			{
-				if (BaseClass->IsA(SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::StaticClass()))
-				{
-					auto* hunter = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C*>(BaseClass);
+				auto* hunter = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C*>(BaseClass);
+
+				if (!hunter)
+					continue;
+				
+				if (cfg->bNoGunCooldown)
 					hunter->GunCoolTime = 0.0;
-				}
+				
+				if (cfg->bMagnetEnabled)
+					HandleMagnet(currentActors, MyLocation, Players);
+			}
+			// Survivor
+			else if (IsSurvivor())
+			{
+				auto* survivor = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Survivor_C*>(BaseClass);
+
+				if (!survivor)
+					continue;
+
+				if (cfg->bAntiDetection)
+					survivor->OverlapCheckCapsules.Clear();
 			}
 			continue;
 		}
 
-		PlayerInfos.push_back({ PlayerName, Location, obj });
+		PlayerInfos.push_back({ PlayerName, Location, objActor });
 
 		UpdateForcedVisibility();
 
@@ -121,7 +138,7 @@ std::string CheatManager::ResolvePlayerName()
 	// Don't drop the whole ESP over that - just fall back to the last name we saw for this actor.
 	if (!BaseClass->PlayerState)
 	{
-		auto it = playerNameCache.find(obj);
+		auto it = playerNameCache.find(objActor);
 		return it != playerNameCache.end() ? it->second : "Unknown";
 	}
 
@@ -139,7 +156,7 @@ std::string CheatManager::ResolvePlayerName()
 	if (Name->IsValid())
 	{
 		std::string PlayerName = Name->ToString();
-		playerNameCache[obj] = PlayerName; // remember it for the null windows
+		playerNameCache[objActor] = PlayerName; // remember it for the null windows
 		return PlayerName;
 	}
 
@@ -157,13 +174,13 @@ void CheatManager::UpdateForcedVisibility()
 	{
 		BaseClass->BodyVisibility = true;
 		BaseClass->OnRep_BodyVisibility();
-		forcedVisibleActors.insert(obj);
+		forcedVisibleActors.insert(objActor);
 	}
-	else if (!cfg->bForceCharacterVisibility && forcedVisibleActors.count(obj))
+	else if (!cfg->bForceCharacterVisibility && forcedVisibleActors.count(objActor))
 	{
 		BaseClass->BodyVisibility = false;
 		BaseClass->OnRep_BodyVisibility();
-		forcedVisibleActors.erase(obj);
+		forcedVisibleActors.erase(objActor);
 	}
 }
 
@@ -183,8 +200,57 @@ void CheatManager::UpdateForcedVisibility()
 bool CheatManager::IsDead()
 {
 	if (BaseClass->Mesh && BaseClass->Mesh->IsAnySimulatingPhysics())
-		deadActors.insert(obj);
-	return deadActors.count(obj) > 0;
+		deadActors.insert(objActor);
+	return deadActors.count(objActor) > 0;
+}
+
+bool CheatManager::IsDead(SDK::AActor* actor)
+{
+	if (!actor) return false;
+	auto* baseClass = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_C*>(actor);
+	if (!baseClass || !baseClass->Mesh) return false;
+
+	if (baseClass->Mesh->IsAnySimulatingPhysics())
+		deadActors.insert(actor);
+	return deadActors.count(actor) > 0;
+}
+
+bool CheatManager::IsSurvivor()
+{
+	return IsSurvivor(BaseClass);
+}
+
+bool CheatManager::IsSurvivor(SDK::AActor* actor)
+{
+	if (!actor) return false;
+	auto* baseClass = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_C*>(actor);
+	if (!baseClass) return false;
+	return baseClass->IsA(SDK::ABP_FirstPersonCharacter_cLeon_Character_Survivor_C::StaticClass());
+}
+
+bool CheatManager::IsSurvivor(SDK::ABP_FirstPersonCharacter_cLeon_Character_C* baseClass)
+{
+	if (!baseClass) return false;
+	return baseClass->IsA(SDK::ABP_FirstPersonCharacter_cLeon_Character_Survivor_C::StaticClass());
+}
+
+bool CheatManager::IsHunter()
+{
+	return IsHunter(BaseClass);
+}
+
+bool CheatManager::IsHunter(SDK::AActor* actor)
+{
+	if (!actor) return false;
+	auto* baseClass = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_C*>(actor);
+	if (!baseClass) return false;
+	return baseClass->IsA(SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::StaticClass());
+}
+
+bool CheatManager::IsHunter(SDK::ABP_FirstPersonCharacter_cLeon_Character_C* baseClass)
+{
+	if (!baseClass) return false;
+	return baseClass->IsA(SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::StaticClass());
 }
 
 // True when the current actor is on the opposing team (survivor vs. hunter) from us.
@@ -266,10 +332,8 @@ void CheatManager::DrawEsp(const std::string& PlayerName, SDK::FVector Location,
 		if (cfg->bRoles)
 		{
 			const char* roleText = nullptr;
-			if (BaseClass->IsA(SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::StaticClass()))
-				roleText = "Hunter";
-			else if (BaseClass->IsA(SDK::ABP_FirstPersonCharacter_cLeon_Character_Survivor_C::StaticClass()))
-				roleText = "Survivor";
+			if (IsHunter()) roleText = "Hunter";
+			else if (IsSurvivor()) roleText = "Survivor";
 
 			if (roleText)
 			{
@@ -293,7 +357,7 @@ void CheatManager::DrawEsp(const std::string& PlayerName, SDK::FVector Location,
 		}
 	}
 
-	//draw a snapline from the bottom-center of the screen to the player's world location
+	// draw a snapline from the bottom-center of the screen to the player's world location
 	SDK::FVector2D Screen;
 	if (cfg->bLines && PlayerController->ProjectWorldLocationToScreen(Location, &Screen, false))
 	{
@@ -314,6 +378,51 @@ void CheatManager::HandleTeleport(const std::unordered_set<SDK::AActor*>& curren
 		MyPlayer->K2_TeleportTo(TeleportTarget->K2_GetActorLocation(), CurrentRotation);
 	}
 	TeleportTarget = nullptr;
+}
+
+void CheatManager::HandleMagnet(const std::unordered_set<SDK::AActor*>& currentActors, const SDK::FVector& MyLocation, SDK::TArray<SDK::AActor*>& Players)
+{
+	// Draw "MAGNET ACTIVE" text at the bottom center in red
+	const float redColor[4] = { 1.0f, 0.0f, 0.0f, 1.0f };
+	const ImU32 colRed = ImGui::ColorConvertFloat4ToU32(*(ImVec4*)redColor);
+
+	const char* magnetText = "MAGNET ACTIVE";
+	const ImVec2 textSize = ImGui::CalcTextSize(magnetText);
+	const float textX = (x / 2.0f) - (textSize.x / 2.0f);
+	const float textY = y - 30.0f;
+
+	ImGui::GetForegroundDrawList()->AddText(ImVec2(textX, textY), colRed, magnetText);
+
+	// Get the player's forward direction from their rotation
+	SDK::FVector ForwardDirection = MyPlayer->GetActorForwardVector();
+	ForwardDirection.Normalize();
+
+	// Magnet effect: pull all other players in front of the local player's view
+	int depthIndex = 0;
+	for (int j = 0; j < Players.Num(); j++)
+	{
+		if (!Players.IsValidIndex(j)) continue;
+
+		SDK::AActor* otherActor = Players[j];
+		if (!otherActor || otherActor == objActor) continue;
+
+		SDK::ABP_FirstPersonCharacter_cLeon_Character_C* otherBaseClass = (SDK::ABP_FirstPersonCharacter_cLeon_Character_C*)otherActor;
+		if (!otherBaseClass) continue;
+
+		// Skip dead
+		if (IsDead(otherActor))
+			continue;
+
+		// Only pull survivors
+		if (!IsSurvivor(otherBaseClass))
+			continue;
+
+		// Spread players in depth to prevent stacking
+		float depthSpread = depthIndex * 120.0f;
+		SDK::FVector targetPosition = MyLocation + ForwardDirection * (150.0f + depthSpread);
+		otherBaseClass->K2_SetActorLocation(targetPosition, false, nullptr, true);
+		++depthIndex;
+	}
 }
 
 void CheatManager::DumpBones()
