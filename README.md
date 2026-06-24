@@ -11,7 +11,9 @@ Inject with your favorite injector, I use [Xenos](https://github.com/darthton/xe
 Build with these settings in Visual Studio:
 
 Platform Toolset: `v145 for Microsoft C++ Build Tools`
+
 Window SDK Version: `Windows 10.0 SDK (latest)`
+
 C++ Language Standard option: `/std:c++latest`
 
 ### Features
