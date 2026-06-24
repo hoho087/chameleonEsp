@@ -44,8 +44,8 @@ inline FILE* file;
 inline Drawings* draw;
 
 // Function pointers for event handling
-inline SDK::UFunction* g_OnRepBodyVisibilityFunc = nullptr;
-inline SDK::UFunction* g_KickLINK = nullptr;
-inline SDK::UFunction* g_KickOnline = nullptr;
-inline SDK::UFunction* g_ClientWasKicked = nullptr;
-inline SDK::UFunction* g_ClientReturnToMainMenuWithTextReason = nullptr;
+inline SDK::UFunction* g_fnOnRepBodyVisibilityFunc = nullptr;
+inline SDK::UFunction* g_fnKickLINK = nullptr;
+inline SDK::UFunction* g_fnKickOnline = nullptr;
+inline SDK::UFunction* g_fnClientWasKicked = nullptr;
+inline SDK::UFunction* g_fnClientReturnToMainMenuWithTextReason = nullptr;

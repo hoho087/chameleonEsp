@@ -168,8 +168,8 @@ std::string CheatManager::ResolvePlayerName()
 void CheatManager::UpdateForcedVisibility()
 {
 	// Cache the OnRep_BodyVisibility UFunction for the ProcessEvent hook (done once)
-	if (!g_OnRepBodyVisibilityFunc)
-		g_OnRepBodyVisibilityFunc = SDK::ABP_FirstPersonCharacter_cLeon_Character_C::StaticClass()->GetFunction("BP_FirstPersonCharacter_cLeon_Character_C", "OnRep_BodyVisibility");
+	if (!g_fnOnRepBodyVisibilityFunc)
+		g_fnOnRepBodyVisibilityFunc = SDK::ABP_FirstPersonCharacter_cLeon_Character_C::StaticClass()->GetFunction("BP_FirstPersonCharacter_cLeon_Character_C", "OnRep_BodyVisibility");
 
 	if (cfg->bForceCharacterVisibility && !BaseClass->BodyVisibility)
 	{

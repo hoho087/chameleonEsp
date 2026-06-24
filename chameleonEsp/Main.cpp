@@ -76,30 +76,69 @@ LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 void __fastcall hkProcessEvent(SDK::UObject* pObject, SDK::UFunction* pFunction, void* pParms)
 {
-    if (cfg && cfg->bForceCharacterVisibility && g_OnRepBodyVisibilityFunc && pFunction == g_OnRepBodyVisibilityFunc)
+    if (cfg && cfg->bForceCharacterVisibility && g_fnOnRepBodyVisibilityFunc && pFunction == g_fnOnRepBodyVisibilityFunc)
     {
         // Force BodyVisibility = true before OnRep reads it, so the character appears visible
         static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_C*>(pObject)->BodyVisibility = true;
     }
 
-    // g_KickOnline is most likely the only needed one,
-    // but hook everything just to make sure we catch all the kick functions
-    if (!g_KickLINK)
-        g_KickLINK = SDK::ABP_FirstPersonCharacter_LINK_C::StaticClass()->GetFunction("BP_FirstPersonCharacter_LINK_C", "Kick");
+    // most likely we only need g_fnKickOnline, but let's hook all Kick funcs just to make sure
+    // ensure we have initial cached pointers
+    if (!g_fnKickLINK)
+        g_fnKickLINK = SDK::ABP_FirstPersonCharacter_LINK_C::StaticClass()->GetFunction("BP_FirstPersonCharacter_LINK_C", "Kick");
 
-    if (!g_KickOnline)
-        g_KickOnline = SDK::ABP_FirstPersonPlayerState_Online_C::StaticClass()->GetFunction("BP_FirstPersonPlayerState_Online_C", "Kick");
+    if (!g_fnKickOnline)
+        g_fnKickOnline = SDK::ABP_FirstPersonPlayerState_Online_C::StaticClass()->GetFunction("BP_FirstPersonPlayerState_Online_C", "Kick");
 
-    if (!g_ClientWasKicked)
-        g_ClientWasKicked = SDK::APlayerController::StaticClass()->GetFunction("PlayerController", "ClientWasKicked");
+    if (!g_fnClientWasKicked)
+        g_fnClientWasKicked = SDK::APlayerController::StaticClass()->GetFunction("PlayerController", "ClientWasKicked");
 
-    if (!g_ClientReturnToMainMenuWithTextReason)
-        g_ClientReturnToMainMenuWithTextReason = SDK::APlayerController::StaticClass()->GetFunction("PlayerController", "ClientReturnToMainMenuWithTextReason");
+    if (!g_fnClientReturnToMainMenuWithTextReason)
+        g_fnClientReturnToMainMenuWithTextReason = SDK::APlayerController::StaticClass()->GetFunction("PlayerController", "ClientReturnToMainMenuWithTextReason");
 
-    if (cfg && cfg->bPreventKick && (pFunction == g_KickLINK || pFunction == g_KickOnline || pFunction == g_ClientWasKicked || pFunction == g_ClientReturnToMainMenuWithTextReason))
+    // if engine recreates UFunction objects between rounds, compare by name/outer and refresh caches
+    if (pFunction)
     {
-        std::cout << "[ProcessEvent] Prevented kick function: " << pFunction->GetFullName() << std::endl;
-        return;
+        std::string fname = pFunction->GetName();
+        std::string outer = pFunction->Outer ? pFunction->Outer->GetName() : std::string();
+
+        bool matchKick = false;
+        bool matchClientWasKicked = false;
+        bool matchReturnToMain = false;
+
+        if (fname == "Kick")
+        {
+            matchKick = true;
+            // decide which cached Kick pointer to update based on declaring class (outer)
+            if (outer.find("BP_FirstPersonPlayerState_Online") != std::string::npos)
+            {
+                if (g_fnKickOnline != pFunction)
+                    g_fnKickOnline = pFunction;
+            }
+            else if (outer.find("BP_FirstPersonCharacter_LINK") != std::string::npos)
+            {
+                if (g_fnKickLINK != pFunction)
+                    g_fnKickLINK = pFunction;
+            }
+        }
+        else if (fname == "ClientWasKicked")
+        {
+            matchClientWasKicked = true;
+            if (g_fnClientWasKicked != pFunction)
+                g_fnClientWasKicked = pFunction;
+        }
+        else if (fname == "ClientReturnToMainMenuWithTextReason")
+        {
+            matchReturnToMain = true;
+            if (g_fnClientReturnToMainMenuWithTextReason != pFunction)
+                g_fnClientReturnToMainMenuWithTextReason = pFunction;
+        }
+
+        if (cfg && cfg->bPreventKick && (matchKick || matchClientWasKicked || matchReturnToMain))
+        {
+            std::cout << "[ProcessEvent] Prevented kick function: " << pFunction->GetFullName() << std::endl;
+            return;
+        }
     }
 
     return oProcessEvent(pObject, pFunction, pParms);
