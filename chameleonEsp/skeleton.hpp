@@ -29,7 +29,8 @@ namespace skeleton
 		upper_leg_R = 24,
 		lower_leg_R = 25,
 		foot_r = 26,
-		foot_R_end = 27
+		foot_R_end = 27,
+		None = 28,
 	};
 	inline std::vector<std::pair<int, int>> Connections = {
 						{neck, Head},
