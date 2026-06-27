@@ -36,6 +36,26 @@ void UWBP_Nameplate_C::SetPlayerName(const class FString& playerName)
 }
 
 
+// Function WBP_Nameplate.WBP_Nameplate_C.SetME
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int32                                   Point                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_Nameplate_C::SetME(int32 Point)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_Nameplate_C", "SetME");
+
+	Params::WBP_Nameplate_C_SetME Parms{};
+
+	Parms.Point = Point;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function WBP_Nameplate.WBP_Nameplate_C.SetEEYAN
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:

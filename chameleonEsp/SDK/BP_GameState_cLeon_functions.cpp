@@ -398,6 +398,20 @@ void ABP_GameState_cLeon_C::OnRep_LiveSurvivors_PlayerState()
 }
 
 
+// Function BP_GameState_cLeon.BP_GameState_cLeon_C.OnRep_JoinPlayerState
+// (BlueprintCallable, BlueprintEvent)
+
+void ABP_GameState_cLeon_C::OnRep_JoinPlayerState()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_GameState_cLeon_C", "OnRep_JoinPlayerState");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function BP_GameState_cLeon.BP_GameState_cLeon_C.OnRep_HuntersPlayerState
 // (BlueprintCallable, BlueprintEvent)
 
@@ -507,6 +521,28 @@ void ABP_GameState_cLeon_C::ModDownloadWait()
 		Func = Class->GetFunction("BP_GameState_cLeon_C", "ModDownloadWait");
 
 	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function BP_GameState_cLeon.BP_GameState_cLeon_C.MaxPlayerChange
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int32                                   Current                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   max_0                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_GameState_cLeon_C::MaxPlayerChange(int32 Current, int32 max_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_GameState_cLeon_C", "MaxPlayerChange");
+
+	Params::BP_GameState_cLeon_C_MaxPlayerChange Parms{};
+
+	Parms.Current = Current;
+	Parms.max_0 = max_0;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 

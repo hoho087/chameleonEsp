@@ -97,7 +97,7 @@ void ABP_RandomObject_PresetType_C::IndexUpdate()
 
 
 // Function BP_RandomObject_PresetType.BP_RandomObject_PresetType_C.ExecuteUbergraph_BP_RandomObject_PresetType
-// (Final, UbergraphFunction)
+// (Final, UbergraphFunction, HasDefaults)
 // Parameters:
 // int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
@@ -113,6 +113,20 @@ void ABP_RandomObject_PresetType_C::ExecuteUbergraph_BP_RandomObject_PresetType(
 	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_RandomObject_PresetType.BP_RandomObject_PresetType_C.CheckLoop
+// (BlueprintCallable, BlueprintEvent)
+
+void ABP_RandomObject_PresetType_C::CheckLoop()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_RandomObject_PresetType_C", "CheckLoop");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "ENUM_HandType_structs.hpp"
 #include "Engine_structs.hpp"
+#include "ENUM_HandType_structs.hpp"
 #include "PenguinHotel_classes.hpp"
 #include "ENUM_ClassType_structs.hpp"
 #include "ENUM_ItemBindType_structs.hpp"
@@ -20,7 +20,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_FirstPersonGameMode_V2.BP_FirstPersonGameMode_V2_C
-// 0x0068 (0x03B8 - 0x0350)
+// 0x0078 (0x03C8 - 0x0350)
 class ABP_FirstPersonGameMode_V2_C : public AMyGameModeBase
 {
 public:
@@ -34,6 +34,7 @@ public:
 	bool                                          UseVoiceChat;                                      // 0x03A8(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_3A9[0x7];                                      // 0x03A9(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	class USoundAttenuation*                      VoiceChatSoundAtt;                                 // 0x03B0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	TMulticastInlineDelegate<void(int32 Current, int32 max_0)> MaxPlayerChange;                      // 0x03B8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 
 public:
 	void UpdateSpawnedControllers();
@@ -55,6 +56,7 @@ public:
 	void MakeUpdaeNumPlayerSettings(int32 NewConnectionNum, struct FOnlineSessionSettingsBP* StructOut);
 	void K2_PostLogin(class APlayerController* NewPlayer_K2_PostLogin);
 	void K2_OnLogout(class AController* ExitingController_K2_OnLogout);
+	void JoinFillterCheck();
 	void ExecuteUbergraph_BP_FirstPersonGameMode_V2(int32 EntryPoint);
 	void DelayUpdate();
 	void CheckBindItem(class ABP_FirstPersonCharacter_Main_C* Character, class AActor* Actor);

@@ -125,7 +125,7 @@ void ABP_RandomObject_SingleUniqueType_C::HideCall()
 
 
 // Function BP_RandomObject_SingleUniqueType.BP_RandomObject_SingleUniqueType_C.ExecuteUbergraph_BP_RandomObject_SingleUniqueType
-// (Final, UbergraphFunction)
+// (Final, UbergraphFunction, HasDefaults)
 // Parameters:
 // int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
@@ -141,6 +141,20 @@ void ABP_RandomObject_SingleUniqueType_C::ExecuteUbergraph_BP_RandomObject_Singl
 	Parms.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_RandomObject_SingleUniqueType.BP_RandomObject_SingleUniqueType_C.CheckLoop
+// (BlueprintCallable, BlueprintEvent)
+
+void ABP_RandomObject_SingleUniqueType_C::CheckLoop()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_RandomObject_SingleUniqueType_C", "CheckLoop");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 

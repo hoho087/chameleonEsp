@@ -10,9 +10,9 @@
 
 #include "Basic.hpp"
 
-#include "ST_cLeonRandomPresetActors_structs.hpp"
-#include "Engine_structs.hpp"
 #include "BP_RandomObject_Base_classes.hpp"
+#include "Engine_structs.hpp"
+#include "ST_cLeonRandomPresetActors_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -35,6 +35,7 @@ public:
 	void OnRep_CurrentIndex();
 	void IndexUpdate();
 	void ExecuteUbergraph_BP_RandomObject_PresetType(int32 EntryPoint);
+	void CheckLoop();
 
 public:
 	static class UClass* StaticClass()

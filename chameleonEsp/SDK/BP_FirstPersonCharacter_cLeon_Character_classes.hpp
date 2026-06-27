@@ -90,6 +90,7 @@ public:
 
 public:
 	void ExecuteUbergraph_BP_FirstPersonCharacter_cLeon_Character(int32 EntryPoint);
+	void MEChange();
 	void BndEvt__BP_FirstPersonCharacter_cLeon_Character_RuntimePaintable_K2Node_ComponentBoundEvent_0_OnDecoyActorCountChanged__DelegateSignature(int32 OldCount, int32 NewCount);
 	void DestroyDecoy();
 	void EEYANChange();

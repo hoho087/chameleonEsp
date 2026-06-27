@@ -112,6 +112,50 @@ void UWBP_ModQueueAll_C::OnFailure_F78BBAD84186A9297376358454884094(const class 
 }
 
 
+// Function WBP_ModQueueAll.WBP_ModQueueAll_C.OnDestroySessionComplete_20A1B5B44A276C069768D3A60A80535F
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class FName                             SessionName                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    bWasSuccessful                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_ModQueueAll_C::OnDestroySessionComplete_20A1B5B44A276C069768D3A60A80535F(class FName SessionName, bool bWasSuccessful)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_ModQueueAll_C", "OnDestroySessionComplete_20A1B5B44A276C069768D3A60A80535F");
+
+	Params::WBP_ModQueueAll_C_OnDestroySessionComplete_20A1B5B44A276C069768D3A60A80535F Parms{};
+
+	Parms.SessionName = SessionName;
+	Parms.bWasSuccessful = bWasSuccessful;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function WBP_ModQueueAll.WBP_ModQueueAll_C.OnCallFailed_20A1B5B44A276C069768D3A60A80535F
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class FName                             SessionName                                            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    bWasSuccessful                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_ModQueueAll_C::OnCallFailed_20A1B5B44A276C069768D3A60A80535F(class FName SessionName, bool bWasSuccessful)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_ModQueueAll_C", "OnCallFailed_20A1B5B44A276C069768D3A60A80535F");
+
+	Params::WBP_ModQueueAll_C_OnCallFailed_20A1B5B44A276C069768D3A60A80535F Parms{};
+
+	Parms.SessionName = SessionName;
+	Parms.bWasSuccessful = bWasSuccessful;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function WBP_ModQueueAll.WBP_ModQueueAll_C.GetWaitPlayers
 // (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -233,6 +277,20 @@ void UWBP_ModQueueAll_C::BndEvt__WBP_ModQueueAll_LongTapButton_OnAnimation_K2Nod
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("WBP_ModQueueAll_C", "BndEvt__WBP_ModQueueAll_LongTapButton_OnAnimation_K2Node_ComponentBoundEvent_1_PushEnd__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function WBP_ModQueueAll.WBP_ModQueueAll_C.BndEvt__WBP_ModQueueAll_LongTapButton_OnAnimation_1_K2Node_ComponentBoundEvent_2_PushEnd__DelegateSignature
+// (BlueprintEvent)
+
+void UWBP_ModQueueAll_C::BndEvt__WBP_ModQueueAll_LongTapButton_OnAnimation_1_K2Node_ComponentBoundEvent_2_PushEnd__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_ModQueueAll_C", "BndEvt__WBP_ModQueueAll_LongTapButton_OnAnimation_1_K2Node_ComponentBoundEvent_2_PushEnd__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }

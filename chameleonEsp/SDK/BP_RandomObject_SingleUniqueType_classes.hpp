@@ -10,8 +10,8 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
 #include "BP_RandomObject_Base_classes.hpp"
+#include "Engine_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -38,6 +38,7 @@ public:
 	void IndexUpdate();
 	void HideCall();
 	void ExecuteUbergraph_BP_RandomObject_SingleUniqueType(int32 EntryPoint);
+	void CheckLoop();
 
 public:
 	static class UClass* StaticClass()

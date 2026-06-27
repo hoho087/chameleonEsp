@@ -270,6 +270,28 @@ void UWBP_cLeonMain_C::PreConstruct(bool IsDesignTime_PreConstruct)
 }
 
 
+// Function WBP_cLeonMain.WBP_cLeonMain_C.PlayerNumUpdate
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int32                                   Current                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   max_0                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_cLeonMain_C::PlayerNumUpdate(int32 Current, int32 max_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_cLeonMain_C", "PlayerNumUpdate");
+
+	Params::WBP_cLeonMain_C_PlayerNumUpdate Parms{};
+
+	Parms.Current = Current;
+	Parms.max_0 = max_0;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function WBP_cLeonMain.WBP_cLeonMain_C.NamePlateVisibilityChange
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:

@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_FirstPersonPlayerState_Online_cLeon.BP_FirstPersonPlayerState_Online_cLeon_C
-// 0x0048 (0x0400 - 0x03B8)
+// 0x0060 (0x0418 - 0x03B8)
 class ABP_FirstPersonPlayerState_Online_cLeon_C final : public ABP_FirstPersonPlayerState_Online_C
 {
 public:
@@ -32,9 +32,14 @@ public:
 	uint8                                         Pad_3E4[0x4];                                      // 0x03E4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TMulticastInlineDelegate<void()>              EEYANChange;                                       // 0x03E8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	class UClass*                                 CurrentBodyClass;                                  // 0x03F8(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	int32                                         CurrentME_Point;                                   // 0x0400(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash)
+	int32                                         MEPoint;                                           // 0x0404(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	TMulticastInlineDelegate<void()>              MEChange;                                          // 0x0408(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 
 public:
 	void WriteEEYANPoint();
+	void UpdateMEPoint_Server_(int32 CurrentME_Point);
+	void UpdateMEPoint_Local_(int32 CurrentME_Point);
 	void UpdateEEYANPoint_Server_(int32 CurrentEEYAN_Point);
 	void UpdateEEYANPoint_Local_(int32 CurrentEEYAN_Point);
 	void SetModState(bool ModState);
@@ -44,10 +49,14 @@ public:
 	void OnWriteUserFileProgress64_0646E9BD4A18BBF176FCAEA4EB4F18EF(bool bWasSuccessful, const struct FUniqueNetIdRepl& UserId, const class FString& Filename, int64 BytesWritten);
 	void OnWriteUserFileComplete_0646E9BD4A18BBF176FCAEA4EB4F18EF(bool bWasSuccessful, const struct FUniqueNetIdRepl& UserId, const class FString& Filename, int64 BytesWritten);
 	void OnWriteUserFileCanceled_0646E9BD4A18BBF176FCAEA4EB4F18EF(bool bWasSuccessful, const struct FUniqueNetIdRepl& UserId, const class FString& Filename, int64 BytesWritten);
+	void OnRep_CurrentME_Point();
 	void OnRep_CurrentEEYAN_Point();
 	void OnCallFailed_0646E9BD4A18BBF176FCAEA4EB4F18EF(bool bWasSuccessful, const struct FUniqueNetIdRepl& UserId, const class FString& Filename, int64 BytesWritten);
 	void GiveEEYAN(class ABP_FirstPersonPlayerState_Online_cLeon_C* PlayerState);
 	void ExecuteUbergraph_BP_FirstPersonPlayerState_Online_cLeon(int32 EntryPoint);
+	void AddMEPoint_Server_();
+	void AddMEPoint();
+	void AddEEYANPoint_Server_();
 
 public:
 	static class UClass* StaticClass()

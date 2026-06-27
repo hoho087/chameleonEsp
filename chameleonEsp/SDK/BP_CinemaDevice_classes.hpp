@@ -12,8 +12,8 @@
 
 #include "EN_CinemaPlayMode_structs.hpp"
 #include "CoreUObject_structs.hpp"
-#include "BP_DeviceBase_classes.hpp"
 #include "Engine_structs.hpp"
+#include "BP_DeviceBase_classes.hpp"
 
 
 SDK_NAMESPACE_START
