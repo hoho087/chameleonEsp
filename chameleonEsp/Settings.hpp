@@ -18,6 +18,7 @@ public:
 	bool bAntiDetection;
 	bool bMagnetEnabled;
 	bool bPreventKick;
+	bool bInfiniteBullets;
 	float colVisible[4];
 	float colNotVisible[4];
 	float colLines[4];

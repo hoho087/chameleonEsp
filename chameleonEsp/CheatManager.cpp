@@ -76,6 +76,9 @@ void CheatManager::Init()
 				if (cfg->bNoGunCooldown && IsObjectValid(hunter))
 					hunter->GunCoolTime = 0.0;
 
+				if (cfg->bInfiniteBullets && IsObjectValid(hunter))
+					hunter->InfinityBullet = true;
+
 				if (cfg->bMagnetEnabled)
 					HandleMagnet(ctx.MyPlayer, actor, currentActors, MyLocation, Players, snap);
 			}
