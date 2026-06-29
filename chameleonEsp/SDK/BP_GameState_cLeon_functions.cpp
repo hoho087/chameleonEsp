@@ -64,6 +64,26 @@ void ABP_GameState_cLeon_C::UpdateRanking()
 }
 
 
+// Function BP_GameState_cLeon.BP_GameState_cLeon_C.UpdateBulletWidget
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int32                                   Current                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_GameState_cLeon_C::UpdateBulletWidget(int32 Current)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_GameState_cLeon_C", "UpdateBulletWidget");
+
+	Params::BP_GameState_cLeon_C_UpdateBulletWidget Parms{};
+
+	Parms.Current = Current;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function BP_GameState_cLeon.BP_GameState_cLeon_C.SyncRankning(Client)
 // (Net, NetMulticast, HasOutParams, BlueprintCallable, BlueprintEvent)
 // Parameters:

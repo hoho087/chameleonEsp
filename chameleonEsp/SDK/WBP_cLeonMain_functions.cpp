@@ -540,6 +540,28 @@ void UWBP_cLeonMain_C::CanPenterationUpdate(bool IsCanPenteration)
 }
 
 
+// Function WBP_cLeonMain.WBP_cLeonMain_C.BulletUpdate
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int32                                   max_0                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// int32                                   Current                                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_cLeonMain_C::BulletUpdate(int32 max_0, int32 Current)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_cLeonMain_C", "BulletUpdate");
+
+	Params::WBP_cLeonMain_C_BulletUpdate Parms{};
+
+	Parms.max_0 = max_0;
+	Parms.Current = Current;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function WBP_cLeonMain.WBP_cLeonMain_C.AddPointpopup
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:

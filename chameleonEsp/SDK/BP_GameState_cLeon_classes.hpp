@@ -11,19 +11,19 @@
 #include "Basic.hpp"
 
 #include "ST_cLeonMapData_structs.hpp"
+#include "EN_cLeonGamePhase_structs.hpp"
 #include "ST_cLeonSurvivorVariation_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "EN_cLeonGameMode_structs.hpp"
 #include "CoreUObject_structs.hpp"
-#include "EN_cLeonGamePhase_structs.hpp"
 #include "EN_cLeonMainGamePhase_structs.hpp"
+#include "EN_cLeonGameMode_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_GameState_cLeon.BP_GameState_cLeon_C
-// 0x0288 (0x0588 - 0x0300)
+// 0x02B0 (0x05B0 - 0x0300)
 class ABP_GameState_cLeon_C final : public AGameStateBase
 {
 public:
@@ -84,11 +84,16 @@ public:
 	TMulticastInlineDelegate<void(const struct FST_cLeonMapData& MapData)> MapDataUpdate;            // 0x0560(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	TMulticastInlineDelegate<void(int32 Current, int32 max_0)> PlayerNumUpdate;                      // 0x0570(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	struct FIntVector2                            JoinPlayerState;                                   // 0x0580(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash)
+	int32                                         MaxBullet;                                         // 0x0588(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_58C[0x4];                                      // 0x058C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(int32 max_0, int32 Current)> BulletUpdate;                         // 0x0590(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TMulticastInlineDelegate<void()>              WinnerCheck;                                       // 0x05A0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 
 public:
 	void Winner(class ABP_FirstPersonPlayerState_Online_C* WinnerPlayerState);
 	void UpdateSend();
 	void UpdateRanking();
+	void UpdateBulletWidget(int32 Current);
 	void SyncRankning_Client_(const TArray<class ABP_FirstPersonPlayerState_Online_cLeon_C*>& PlayerStates, const TArray<int32>& NewPoints, int32 UpdateTime);
 	void SyncRanking_Server_();
 	void ShowPopup_Local_(int32 PopupIndex);

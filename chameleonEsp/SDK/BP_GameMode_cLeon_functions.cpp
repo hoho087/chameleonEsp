@@ -16,6 +16,20 @@
 
 SDK_NAMESPACE_START
 
+// Function BP_GameMode_cLeon.BP_GameMode_cLeon_C.WinnerCheck
+// (BlueprintCallable, BlueprintEvent)
+
+void ABP_GameMode_cLeon_C::WinnerCheck()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_GameMode_cLeon_C", "WinnerCheck");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function BP_GameMode_cLeon.BP_GameMode_cLeon_C.TimerMinus
 // (BlueprintCallable, BlueprintEvent)
 
@@ -500,6 +514,27 @@ void ABP_GameMode_cLeon_C::GetMaxHunterNum(int32* MaxHunterNum)
 
 	if (MaxHunterNum != nullptr)
 		*MaxHunterNum = Parms.MaxHunterNum;
+}
+
+
+// Function BP_GameMode_cLeon.BP_GameMode_cLeon_C.GetMaxBulletNum
+// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int32*                                  MaxBulletValue                                         (Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_GameMode_cLeon_C::GetMaxBulletNum(int32* MaxBulletValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_GameMode_cLeon_C", "GetMaxBulletNum");
+
+	Params::BP_GameMode_cLeon_C_GetMaxBulletNum Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (MaxBulletValue != nullptr)
+		*MaxBulletValue = Parms.MaxBulletValue;
 }
 
 

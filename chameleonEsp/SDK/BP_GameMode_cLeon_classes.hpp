@@ -10,10 +10,10 @@
 
 #include "Basic.hpp"
 
-#include "Engine_structs.hpp"
-#include "EN_cLeonGameMode_structs.hpp"
 #include "BP_FirstPersonGameMode_V2_classes.hpp"
+#include "Engine_structs.hpp"
 #include "EN_cLeonBodyType_structs.hpp"
+#include "EN_cLeonGameMode_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -51,6 +51,7 @@ public:
 	class UClass*                                 SurvivorClass;                                     // 0x0440(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 
 public:
+	void WinnerCheck();
 	void TimerMinus();
 	void TeleportLobby();
 	void TeleportHunter();
@@ -79,6 +80,7 @@ public:
 	void IsEndGame();
 	void HunterWaitTimerMinus();
 	void GetMaxHunterNum(int32* MaxHunterNum);
+	void GetMaxBulletNum(int32* MaxBulletValue);
 	void GetMapIndex(int32* SelectMapIndex, class UBP_cLeonMapData_C** SelectMapDatas, int32* GameMapIndex, class UBP_cLeonMapData_C** GameMapDatas);
 	void GetHunterWaitTime(int32* HunterWaitTime);
 	void GetGameTime(int32* TimerDefault);

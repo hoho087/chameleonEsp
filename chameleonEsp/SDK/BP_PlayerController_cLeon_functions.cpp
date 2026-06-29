@@ -270,6 +270,20 @@ void ABP_PlayerController_cLeon_C::EEYAN_State(bool State)
 }
 
 
+// Function BP_PlayerController_cLeon.BP_PlayerController_cLeon_C.ChoseBodyClose
+// (BlueprintCallable, BlueprintEvent)
+
+void ABP_PlayerController_cLeon_C::ChoseBodyClose()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_PlayerController_cLeon_C", "ChoseBodyClose");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function BP_PlayerController_cLeon.BP_PlayerController_cLeon_C.CameraReset
 // (BlueprintCallable, BlueprintEvent)
 

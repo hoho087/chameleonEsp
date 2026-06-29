@@ -54,6 +54,7 @@ public:
 	void Finish();
 	void ExecuteUbergraph_BP_PlayerController_cLeon(int32 EntryPoint);
 	void EEYAN_State(bool State);
+	void ChoseBodyClose();
 	void CameraReset();
 	void AddMainWidgets();
 	void AddBodyTypeSesttings();

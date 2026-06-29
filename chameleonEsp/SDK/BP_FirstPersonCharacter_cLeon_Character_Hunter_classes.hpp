@@ -18,7 +18,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_FirstPersonCharacter_cLeon_Character_Hunter.BP_FirstPersonCharacter_cLeon_Character_Hunter_C
-// 0x00C0 (0x0D90 - 0x0CD0)
+// 0x00D0 (0x0DA0 - 0x0CD0)
 class ABP_FirstPersonCharacter_cLeon_Character_Hunter_C final : public ABP_FirstPersonCharacter_cLeon_Character_C
 {
 public:
@@ -36,8 +36,11 @@ public:
 	TArray<class ABP_FirstPersonPlayerState_C*>   FoundTargetPlayerState;                            // 0x0D28(0x0010)(Edit, BlueprintVisible, Net, DisableEditOnTemplate, DisableEditOnInstance, RepNotify)
 	TMap<class ABP_FirstPersonPlayerState_Online_cLeon_C*, int32> SendTargetInView;                  // 0x0D38(0x0050)(Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance)
 	class UMaterialInstanceDynamic*               LocalTarget;                                       // 0x0D88(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
+	int32                                         CurrentBullet;                                     // 0x0D90(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          InfinityBullet;                                    // 0x0D94(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
+	void UpdateRemainBullet(int32 BulletNum);
 	void SpawnShotEffect_Server_(const struct FVector& Endpoint, bool IsHit, const struct FRotator& HitRotation, int32 Seed);
 	void SpawnShotEffect_Local_(const struct FVector& Endpoint, bool IsHit, const struct FRotator& HitRotation, int32 Seed);
 	void SpawnShotEffect_Client_(const struct FVector& Endpoint, bool IsHit, const struct FRotator& HitRotation, int32 Seed);
@@ -47,6 +50,7 @@ public:
 	void ReceiveBeginPlay();
 	void PlayerControllerSetup();
 	void OnRep_FoundTargetPlayerState();
+	void OnRep_CurrentBullet();
 	void OnNotifyEnd_B6C494744BD8085F199D4791408CEB6E(class FName NotifyName);
 	void OnNotifyEnd_85995EF044945821EC08CDAD261FDD89(class FName NotifyName);
 	void OnNotifyEnd_53A71DDF483CC968C1A61DAF788E875A(class FName NotifyName);
@@ -72,6 +76,7 @@ public:
 	void InpActEvt_IA_KeepRotation_K2Node_EnhancedInputActionEvent_0(const struct FInputActionValue& ActionValue, float ElapsedTime, float TriggeredTime, const class UInputAction* SourceAction);
 	void InpActEvt_IA_Jump_K2Node_EnhancedInputActionEvent_1(const struct FInputActionValue& ActionValue, float ElapsedTime, float TriggeredTime, const class UInputAction* SourceAction);
 	void InpActEvt_IA_Crouch_K2Node_EnhancedInputActionEvent_2(const struct FInputActionValue& ActionValue, float ElapsedTime, float TriggeredTime, const class UInputAction* SourceAction);
+	void InfinityBulletEnd();
 	void HitSuccess(class ABP_FirstPersonCharacter_cLeon_Character_C* FirstpersonCharacter);
 	void ExecuteUbergraph_BP_FirstPersonCharacter_cLeon_Character_Hunter(int32 EntryPoint);
 	void CheckViewInSurvivor();

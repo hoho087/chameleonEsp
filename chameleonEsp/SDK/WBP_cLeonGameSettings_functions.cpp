@@ -144,6 +144,20 @@ void UWBP_cLeonGameSettings_C::BndEvt__WBP_cLeonGameSettings_WBP_NavOptionBox_Ma
 }
 
 
+// Function WBP_cLeonGameSettings.WBP_cLeonGameSettings_C.BndEvt__WBP_cLeonGameSettings_WBP_NavOptionBox_LimitBullet_K2Node_ComponentBoundEvent_13_OnValueChangedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UWBP_cLeonGameSettings_C::BndEvt__WBP_cLeonGameSettings_WBP_NavOptionBox_LimitBullet_K2Node_ComponentBoundEvent_13_OnValueChangedEvent__DelegateSignature()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_cLeonGameSettings_C", "BndEvt__WBP_cLeonGameSettings_WBP_NavOptionBox_LimitBullet_K2Node_ComponentBoundEvent_13_OnValueChangedEvent__DelegateSignature");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function WBP_cLeonGameSettings.WBP_cLeonGameSettings_C.BndEvt__WBP_cLeonGameSettings_WBP_NavOptionBox_GameMode_K2Node_ComponentBoundEvent_5_OnValueChangedEvent__DelegateSignature
 // (BlueprintEvent)
 
@@ -211,6 +225,28 @@ void UWBP_cLeonGameSettings_C::BndEvt__WBP_cLeonGameSettings_WBP_NavOptionBox_Ca
 		Func = Class->GetFunction("WBP_cLeonGameSettings_C", "BndEvt__WBP_cLeonGameSettings_WBP_NavOptionBox_CanShowHunterWatchRanking_K2Node_ComponentBoundEvent_12_OnValueChangedEvent__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function WBP_cLeonGameSettings.WBP_cLeonGameSettings_C.BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_LimitBullet_K2Node_ComponentBoundEvent_14_OnTextCommitted__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// const class FText&                      Text                                                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// ETextCommit                             CommitMethod                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_cLeonGameSettings_C::BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_LimitBullet_K2Node_ComponentBoundEvent_14_OnTextCommitted__DelegateSignature(const class FText& Text, ETextCommit CommitMethod)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_cLeonGameSettings_C", "BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_LimitBullet_K2Node_ComponentBoundEvent_14_OnTextCommitted__DelegateSignature");
+
+	Params::WBP_cLeonGameSettings_C_BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_LimitBullet_K2Node_ComponentBoundEvent_14_OnTextCommitted__DelegateSignature Parms{};
+
+	Parms.Text = std::move(Text);
+	Parms.CommitMethod = CommitMethod;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 

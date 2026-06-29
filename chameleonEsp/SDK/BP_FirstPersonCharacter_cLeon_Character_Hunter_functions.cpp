@@ -16,6 +16,26 @@
 
 SDK_NAMESPACE_START
 
+// Function BP_FirstPersonCharacter_cLeon_Character_Hunter.BP_FirstPersonCharacter_cLeon_Character_Hunter_C.UpdateRemainBullet
+// (Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int32                                   BulletNum                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::UpdateRemainBullet(int32 BulletNum)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_FirstPersonCharacter_cLeon_Character_Hunter_C", "UpdateRemainBullet");
+
+	Params::BP_FirstPersonCharacter_cLeon_Character_Hunter_C_UpdateRemainBullet Parms{};
+
+	Parms.BulletNum = BulletNum;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function BP_FirstPersonCharacter_cLeon_Character_Hunter.BP_FirstPersonCharacter_cLeon_Character_Hunter_C.SpawnShotEffect(Server)
 // (Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -179,6 +199,20 @@ void ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::OnRep_FoundTargetPlayerS
 
 	if (Func == nullptr)
 		Func = Class->GetFunction("BP_FirstPersonCharacter_cLeon_Character_Hunter_C", "OnRep_FoundTargetPlayerState");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function BP_FirstPersonCharacter_cLeon_Character_Hunter.BP_FirstPersonCharacter_cLeon_Character_Hunter_C.OnRep_CurrentBullet
+// (BlueprintCallable, BlueprintEvent)
+
+void ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::OnRep_CurrentBullet()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_FirstPersonCharacter_cLeon_Character_Hunter_C", "OnRep_CurrentBullet");
 
 	UObject::ProcessEvent(Func, nullptr);
 }
@@ -707,6 +741,20 @@ void ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::InpActEvt_IA_Crouch_K2No
 	Parms.SourceAction = SourceAction;
 
 	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_FirstPersonCharacter_cLeon_Character_Hunter.BP_FirstPersonCharacter_cLeon_Character_Hunter_C.InfinityBulletEnd
+// (BlueprintCallable, BlueprintEvent)
+
+void ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::InfinityBulletEnd()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_FirstPersonCharacter_cLeon_Character_Hunter_C", "InfinityBulletEnd");
+
+	UObject::ProcessEvent(Func, nullptr);
 }
 
 
