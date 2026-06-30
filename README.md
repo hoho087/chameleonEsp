@@ -31,7 +31,7 @@ C++ Language Standard option: `/std:c++latest`
 - Name Changer
 - Name Stealer
 - Survivors:
-- - Anti Detection
+- - Anti Detection (your location will no longer reveal if you are "Too Buried")
 - - No Decoy Cooldown
 - Hunters:
 - - No Gun Cooldown
