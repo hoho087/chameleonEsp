@@ -620,15 +620,12 @@ void CheatManager::DrawEntry(const EspEntry& entry)
 		if (cfg->bDistance)
 		{
 			char DistanceText[32];
-			snprintf(DistanceText, sizeof(DistanceText), "%.0fm",
-				entry.distanceMeters);
+			snprintf(DistanceText, sizeof(DistanceText), "%.0fm", entry.distanceMeters);
 
 			// center the label just under the box
 			const ImVec2 TextSize = ImGui::CalcTextSize(DistanceText);
-			const float TextX =
-				(entry.boxMin.X + entry.boxMax.X) * 0.5f - TextSize.x * 0.5f;
-			ImGui::GetForegroundDrawList()->AddText(ImVec2(TextX, entry.boxMax.Y + 2),
-				colEsp, DistanceText);
+			const float TextX = (entry.boxMin.X + entry.boxMax.X) * 0.5f - TextSize.x * 0.5f;
+			ImGui::GetForegroundDrawList()->AddText(ImVec2(TextX, entry.boxMax.Y + 2), colEsp, DistanceText);
 		}
 
 		// if (cfg->bHunterAmmo && entry.ammo >= 0)
@@ -650,10 +647,7 @@ void CheatManager::DrawEntry(const EspEntry& entry)
 	if (cfg->bLines && entry.hasSnapline)
 	{
 		const auto& io = ImGui::GetIO();
-		ImGui::GetForegroundDrawList()->AddLine(
-			ImVec2(static_cast<float>(io.DisplaySize.x / 2),
-				static_cast<float>(io.DisplaySize.y)),
-			ImVec2(entry.snaplineScreen.X, entry.snaplineScreen.Y), colLine, 0.7f);
+		ImGui::GetForegroundDrawList()->AddLine(ImVec2(static_cast<float>(io.DisplaySize.x / 2), static_cast<float>(io.DisplaySize.y)), ImVec2(entry.snaplineScreen.X, entry.snaplineScreen.Y), colLine, 0.7f);
 	}
 }
 
@@ -680,9 +674,11 @@ void CheatManager::HandleTeleport(
 }
 
 void CheatManager::HandleMagnet(
-	SDK::APawn* myPlayer, SDK::AActor* selfActor,
+	SDK::APawn* myPlayer,
+	SDK::AActor* selfActor,
 	const std::unordered_set<SDK::AActor*>& currentActors,
-	const SDK::FVector& MyLocation, SDK::TArray<SDK::AActor*>& Players,
+	const SDK::FVector& MyLocation,
+	SDK::TArray<SDK::AActor*>& Players,
 	EspSnapshot& snap)
 {
 	// Flag the overlay so the render thread draws the "MAGNET ACTIVE" banner
@@ -704,8 +700,7 @@ void CheatManager::HandleMagnet(
 		if (!otherActor || otherActor == selfActor)
 			continue;
 
-		SDK::ABP_FirstPersonCharacter_cLeon_Character_C* otherBaseClass =
-			(SDK::ABP_FirstPersonCharacter_cLeon_Character_C*)otherActor;
+		SDK::ABP_FirstPersonCharacter_cLeon_Character_C* otherBaseClass = ss(SDK::ABP_FirstPersonCharacter_cLeon_Character_C*)otherActor;
 		if (!otherBaseClass)
 			continue;
 
@@ -719,8 +714,7 @@ void CheatManager::HandleMagnet(
 
 		// Spread players in depth to prevent stacking
 		float depthSpread = depthIndex * 120.0f;
-		SDK::FVector targetPosition =
-			MyLocation + ForwardDirection * (150.0f + depthSpread);
+		SDK::FVector targetPosition = MyLocation + ForwardDirection * (150.0f + depthSpread);
 		if (IsObjectValid(otherBaseClass))
 			otherBaseClass->K2_SetActorLocation(targetPosition, false, nullptr, true);
 		++depthIndex;
@@ -733,12 +727,8 @@ void CheatManager::KillSurvivor(SDK::APawn* myPlayer, SDK::AActor* actor)
 		!IsSurvivor(actor) || IsDead(actor))
 		return;
 
-	auto* hunter =
-		static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C*>(
-			myPlayer);
-	auto* survivor =
-		static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Survivor_C*>(
-			actor);
+	auto* hunter = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C*>(myPlayer);
+	auto* survivor = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Survivor_C*>(actor);
 	if (!IsObjectValid(hunter) || !IsObjectValid(survivor))
 		return;
 
@@ -748,13 +738,11 @@ void CheatManager::KillSurvivor(SDK::APawn* myPlayer, SDK::AActor* actor)
 	// recreates BP-generated functions between rounds, so that static dangles
 	// after a round transition and ProcessEvent then walks a freed function's
 	// garbage parameter layout - faulting with a write AV deep inside the engine.
-	SDK::UFunction* fn = hunter->Class->GetFunction(
-		"BP_FirstPersonCharacter_cLeon_Character_Hunter_C", "KillPlayer");
+	SDK::UFunction* fn = hunter->Class->GetFunction("BP_FirstPersonCharacter_cLeon_Character_Hunter_C", "KillPlayer");
 	if (!fn)
 		return;
 
-	SDK::Params::BP_FirstPersonCharacter_cLeon_Character_Hunter_C_KillPlayer
-		parms{};
+	SDK::Params::BP_FirstPersonCharacter_cLeon_Character_Hunter_C_KillPlayer parms{};
 	parms.FirstpersonCharacter = survivor;
 	parms.SourcePlayerState = hunter->MyPlayerState;
 	hunter->ProcessEvent(fn, &parms);
