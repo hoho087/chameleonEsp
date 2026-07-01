@@ -440,7 +440,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT
 	}
 
 	// ignore hotkeys if the game window isn't focused, or if the user is typing in a text input (chat, console, etc.)
-	if ((GetAsyncKeyState(0x47) & 1) && IsGameWindowFocused() && !ImGui::GetIO().WantTextInput) // G key
+	if ((GetAsyncKeyState(cfg->iMagnetKey) & 1) && IsGameWindowFocused() && !ImGui::GetIO().WantTextInput) // magnet toggle key (default G)
 		cfg->bMagnetEnabled = !cfg->bMagnetEnabled;
 
 	ImGui::End();

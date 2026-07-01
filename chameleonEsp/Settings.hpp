@@ -19,6 +19,7 @@ public:
 	bool bNoGunCooldown;
 	bool bAntiDetection;
 	bool bMagnetEnabled;
+	int iMagnetKey;
 	bool bPreventKick;
 	bool bInfiniteBullets;
 	bool bNoDecoyCooldown;

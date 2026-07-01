@@ -22,6 +22,7 @@ void Settings::InitializeSettings()
 	this->bNoGunCooldown = false;
 	this->bAntiDetection = false;
 	this->bMagnetEnabled = false;
+	this->iMagnetKey = 0x47; // G
 	this->bPreventKick = false;
 	this->bInfiniteBullets = false;
 	this->bNoDecoyCooldown = false;

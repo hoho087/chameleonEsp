@@ -1,5 +1,24 @@
 #include "includes.hpp"
 
+// Human-readable name for a virtual-key code, falling back to hex for keys Windows can't name (mouse buttons, etc).
+static const char* KeyName(int vk)
+{
+	static char name[32];
+	UINT sc = MapVirtualKeyA(vk, MAPVK_VK_TO_VSC);
+	switch (vk) // extended keys need the extended-scancode bit to name correctly
+	{
+	case VK_LEFT: case VK_UP: case VK_RIGHT: case VK_DOWN:
+	case VK_PRIOR: case VK_NEXT: case VK_END: case VK_HOME:
+	case VK_INSERT: case VK_DELETE: case VK_DIVIDE: case VK_NUMLOCK:
+		sc |= 0x100;
+		break;
+	}
+	if (sc && GetKeyNameTextA((LONG)(sc << 16), name, sizeof(name)) > 0)
+		return name;
+	snprintf(name, sizeof(name), "0x%02X", vk);
+	return name;
+}
+
 void Menu::Init()
 {
 	ImGui::SetNextWindowSize({ 300, 480 }, ImGuiCond_Once);
@@ -117,6 +136,29 @@ void Menu::Init()
 			ImGui::Checkbox("No Gun Cooldown", &cfg->bNoGunCooldown);
 			ImGui::Checkbox("Infinite Bullets", &cfg->bInfiniteBullets);
 
+			// Magnet toggle key rebind: click the button, then press any key (ESC cancels).
+			static bool bindingMagnet = false;
+			ImGui::Text("Magnet Key:");
+			ImGui::SameLine();
+			if (ImGui::Button(bindingMagnet ? "Press a key..." : KeyName(cfg->iMagnetKey)))
+				bindingMagnet = true;
+			if (bindingMagnet)
+			{
+				for (int vk = 0x08; vk <= 0xFE; vk++)
+				{
+					if (vk == VK_LBUTTON || vk == VK_RBUTTON) // reserved for UI interaction
+						continue;
+					// 0x8000 = key is down, 0x0001 = key was pressed since last call
+					if (GetAsyncKeyState(vk) & 0x8000)
+					{
+						if (vk != VK_ESCAPE)
+							cfg->iMagnetKey = vk;
+						bindingMagnet = false;
+						break;
+					}
+				}
+			}
+
 			if (ImGui::Button("Kill All Survivors"))
 				cheat->RequestKillAllSurvivors();
 
@@ -176,7 +218,17 @@ void Menu::Init()
 			ImGui::Checkbox("Anti Server Kick", &cfg->bPreventKick);
 
 			ImGui::Separator();
-			ImGui::Text("Name Changer");
+
+			if (ImGui::Button("Dump Bones (Debugging)"))
+				cfg->bDumpBones = true;
+
+			ImGui::EndChild();
+			ImGui::EndTabItem();
+		}
+
+		if (ImGui::BeginTabItem("Name Changer"))
+		{
+			ImGui::BeginChild("##name_list", ImVec2(0, 0), false);
 
 			static SDK::AActor* selectedNameActor = nullptr;
 			const char* namePreview = "Select player";
@@ -225,11 +277,6 @@ void Menu::Init()
 			ImGui::SameLine();
 			if ((ImGui::Button("Set", ImVec2(setBtnW, 0)) || nameEntered) && customName[0] != '\0')
 				cheat->RequestChangeName(customName);
-
-			ImGui::Separator();
-
-			if (ImGui::Button("Dump Bones (Debugging)"))
-				cfg->bDumpBones = true;
 
 			ImGui::EndChild();
 			ImGui::EndTabItem();

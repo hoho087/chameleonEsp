@@ -11,6 +11,8 @@ Credits to [Dumper7](https://github.com/Encryqed/Dumper-7), [Unreal-Internal-Bas
 
 Inject with your favorite injector, I use [Xenos](https://github.com/darthton/xenos)
 
+For **DirectX 12**.
+
 ### Build
 
 Build with these settings in Visual Studio:
