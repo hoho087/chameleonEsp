@@ -622,9 +622,9 @@ void ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::OnBlendOut_12AC243E438FB
 // (Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // class ABP_FirstPersonCharacter_cLeon_Character_C*FirstpersonCharacter                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
-// class ABP_FirstPersonPlayerState_C*     SourcePlayerState                                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// class ABP_FirstPersonPlayerState_Online_cLeon_C*SourcePlayerState                                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 
-void ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::KillPlayer(class ABP_FirstPersonCharacter_cLeon_Character_C* FirstpersonCharacter, class ABP_FirstPersonPlayerState_C* SourcePlayerState)
+void ABP_FirstPersonCharacter_cLeon_Character_Hunter_C::KillPlayer(class ABP_FirstPersonCharacter_cLeon_Character_C* FirstpersonCharacter, class ABP_FirstPersonPlayerState_Online_cLeon_C* SourcePlayerState)
 {
 	static class UFunction* Func = nullptr;
 

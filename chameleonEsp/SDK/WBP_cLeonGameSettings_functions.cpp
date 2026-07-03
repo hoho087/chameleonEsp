@@ -338,6 +338,72 @@ void UWBP_cLeonGameSettings_C::BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlo
 }
 
 
+// Function WBP_cLeonGameSettings.WBP_cLeonGameSettings_C.BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenSearch_K2Node_ComponentBoundEvent_16_OnTextCommitted__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// const class FText&                      Text                                                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// ETextCommit                             CommitMethod                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_cLeonGameSettings_C::BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenSearch_K2Node_ComponentBoundEvent_16_OnTextCommitted__DelegateSignature(const class FText& Text, ETextCommit CommitMethod)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_cLeonGameSettings_C", "BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenSearch_K2Node_ComponentBoundEvent_16_OnTextCommitted__DelegateSignature");
+
+	Params::WBP_cLeonGameSettings_C_BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenSearch_K2Node_ComponentBoundEvent_16_OnTextCommitted__DelegateSignature Parms{};
+
+	Parms.Text = std::move(Text);
+	Parms.CommitMethod = CommitMethod;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function WBP_cLeonGameSettings.WBP_cLeonGameSettings_C.BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenLook_K2Node_ComponentBoundEvent_15_OnTextCommitted__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// const class FText&                      Text                                                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// ETextCommit                             CommitMethod                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_cLeonGameSettings_C::BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenLook_K2Node_ComponentBoundEvent_15_OnTextCommitted__DelegateSignature(const class FText& Text, ETextCommit CommitMethod)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_cLeonGameSettings_C", "BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenLook_K2Node_ComponentBoundEvent_15_OnTextCommitted__DelegateSignature");
+
+	Params::WBP_cLeonGameSettings_C_BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenLook_K2Node_ComponentBoundEvent_15_OnTextCommitted__DelegateSignature Parms{};
+
+	Parms.Text = std::move(Text);
+	Parms.CommitMethod = CommitMethod;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function WBP_cLeonGameSettings.WBP_cLeonGameSettings_C.BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenAnswer_K2Node_ComponentBoundEvent_17_OnTextCommitted__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// const class FText&                      Text                                                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// ETextCommit                             CommitMethod                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_cLeonGameSettings_C::BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenAnswer_K2Node_ComponentBoundEvent_17_OnTextCommitted__DelegateSignature(const class FText& Text, ETextCommit CommitMethod)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_cLeonGameSettings_C", "BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenAnswer_K2Node_ComponentBoundEvent_17_OnTextCommitted__DelegateSignature");
+
+	Params::WBP_cLeonGameSettings_C_BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_ChickenAnswer_K2Node_ComponentBoundEvent_17_OnTextCommitted__DelegateSignature Parms{};
+
+	Parms.Text = std::move(Text);
+	Parms.CommitMethod = CommitMethod;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function WBP_cLeonGameSettings.WBP_cLeonGameSettings_C.BndEvt__WBP_cLeonGameSettings_WBP_NavInputTextBlock_CheckAnswersTime_K2Node_ComponentBoundEvent_4_OnTextCommitted__DelegateSignature
 // (BlueprintEvent)
 // Parameters:

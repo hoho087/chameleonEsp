@@ -10,11 +10,11 @@
 
 #include "Basic.hpp"
 
+#include "ENUM_ActorType_structs.hpp"
 #include "EN_DamageType_structs.hpp"
+#include "FinishFilter_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "EN_StrafingDirection_structs.hpp"
-#include "FinishFilter_structs.hpp"
-#include "ENUM_ActorType_structs.hpp"
 #include "EN_ThrowState_structs.hpp"
 #include "EN_StanType_structs.hpp"
 #include "Engine_structs.hpp"

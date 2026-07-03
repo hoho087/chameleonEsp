@@ -17,13 +17,14 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_ShowCopy.BP_ShowCopy_C
-// 0x0020 (0x02C8 - 0x02A8)
+// 0x0028 (0x02D0 - 0x02A8)
 class ABP_ShowCopy_C final : public AActor
 {
 public:
 	struct FPointerToUberGraphFrame               UberGraphFrame;                                    // 0x02A8(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
 	class USkeletalMeshComponent*                 SkeletalMesh;                                      // 0x02B0(0x0008)(BlueprintVisible, ZeroConstructor, InstancedReference, NonTransactional, NoDestructor, HasGetValueTypeHash)
 	TArray<class AActor*>                         HideActor;                                         // 0x02B8(0x0010)(Edit, BlueprintVisible, DisableEditOnTemplate)
+	class UAnimMontage*                           LastMontage;                                       // 0x02C8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void ReceiveBeginPlay();

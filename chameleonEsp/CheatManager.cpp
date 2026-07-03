@@ -744,7 +744,8 @@ void CheatManager::KillSurvivor(SDK::APawn* myPlayer, SDK::AActor* actor)
 
 	SDK::Params::BP_FirstPersonCharacter_cLeon_Character_Hunter_C_KillPlayer parms{};
 	parms.FirstpersonCharacter = survivor;
-	parms.SourcePlayerState = hunter->MyPlayerState;
+	//parms.SourcePlayerState = hunter->MyPlayerState;
+	parms.SourcePlayerState = hunter->LastMyPlayerState;
 	hunter->ProcessEvent(fn, &parms);
 }
 

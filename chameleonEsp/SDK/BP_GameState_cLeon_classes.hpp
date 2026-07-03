@@ -10,14 +10,14 @@
 
 #include "Basic.hpp"
 
-#include "ST_cLeonMapData_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "EN_cLeonMainGamePhase_structs.hpp"
 #include "EN_cLeonGamePhase_structs.hpp"
-#include "ST_cLeonSurvivorVariation_structs.hpp"
 #include "EN_cLeonGameMode_structs.hpp"
+#include "ST_cLeonMapData_structs.hpp"
+#include "EN_cLeonMainGamePhase_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "ST_cLeonSurvivorVariation_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -134,6 +134,7 @@ public:
 	void GameEndSurvivorStop();
 	void ForceStart();
 	void ForceModeWidgetReset();
+	void FocusChicken();
 	void ExecuteUbergraph_BP_GameState_cLeon(int32 EntryPoint);
 	void EEYAN_Activate();
 	void CountUIReset();
@@ -142,6 +143,7 @@ public:
 	void BodyTypeSelectWidget();
 	void AllHunterStencilOff();
 	void AddToViewDatas(class ABP_FirstPersonPlayerState_Online_cLeon_C* SourcePlayerState, const TArray<class ABP_FirstPersonPlayerState_Online_cLeon_C*>& PlayerStates, const TArray<int32>& Points);
+	void AddToViewDataForce(class ABP_FirstPersonPlayerState_Online_cLeon_C* SourcePlayerState, const TArray<class ABP_FirstPersonPlayerState_Online_cLeon_C*>& PlayerStates, const TArray<int32>& Points);
 
 public:
 	static class UClass* StaticClass()

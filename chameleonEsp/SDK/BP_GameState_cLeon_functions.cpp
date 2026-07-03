@@ -738,6 +738,20 @@ void ABP_GameState_cLeon_C::ForceModeWidgetReset()
 }
 
 
+// Function BP_GameState_cLeon.BP_GameState_cLeon_C.FocusChicken
+// (Net, NetReliable, NetMulticast, BlueprintCallable, BlueprintEvent)
+
+void ABP_GameState_cLeon_C::FocusChicken()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_GameState_cLeon_C", "FocusChicken");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function BP_GameState_cLeon.BP_GameState_cLeon_C.ExecuteUbergraph_BP_GameState_cLeon
 // (Final, UbergraphFunction, HasDefaults)
 // Parameters:
@@ -857,6 +871,30 @@ void ABP_GameState_cLeon_C::AddToViewDatas(class ABP_FirstPersonPlayerState_Onli
 		Func = Class->GetFunction("BP_GameState_cLeon_C", "AddToViewDatas");
 
 	Params::BP_GameState_cLeon_C_AddToViewDatas Parms{};
+
+	Parms.SourcePlayerState = SourcePlayerState;
+	Parms.PlayerStates = std::move(PlayerStates);
+	Parms.Points = std::move(Points);
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function BP_GameState_cLeon.BP_GameState_cLeon_C.AddToViewDataForce
+// (HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class ABP_FirstPersonPlayerState_Online_cLeon_C*SourcePlayerState                                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+// const TArray<class ABP_FirstPersonPlayerState_Online_cLeon_C*>&PlayerStates                                           (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// const TArray<int32>&                    Points                                                 (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+
+void ABP_GameState_cLeon_C::AddToViewDataForce(class ABP_FirstPersonPlayerState_Online_cLeon_C* SourcePlayerState, const TArray<class ABP_FirstPersonPlayerState_Online_cLeon_C*>& PlayerStates, const TArray<int32>& Points)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_GameState_cLeon_C", "AddToViewDataForce");
+
+	Params::BP_GameState_cLeon_C_AddToViewDataForce Parms{};
 
 	Parms.SourcePlayerState = SourcePlayerState;
 	Parms.PlayerStates = std::move(PlayerStates);
