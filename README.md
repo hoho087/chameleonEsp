@@ -1,4 +1,4 @@
-Currently updated for Game Version: **2.3.2**
+Currently updated for Game Version: **2.4.1**
 
 Internal extension for Meccha Chameleon
 
