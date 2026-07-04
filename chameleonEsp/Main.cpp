@@ -430,7 +430,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT
 	ImGui::SetWindowPos(ImVec2(0, 0), ImGuiCond_Always);
 	ImGui::SetWindowSize(ImVec2(io.DisplaySize.x, io.DisplaySize.y), ImGuiCond_Always);
 
-	if (cfg->bInitHooks)
+	if (cfg->bInitHooks && cheat)
 	{
 		// Ask the game thread to refresh the snapshot, then draw the latest one we have. The scan
 		// itself must NOT run here on the render thread (see hkProcessEvent) - that was the access
