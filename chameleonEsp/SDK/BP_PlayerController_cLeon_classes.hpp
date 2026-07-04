@@ -39,6 +39,7 @@ public:
 	TMulticastInlineDelegate<void(const class FString& Name_0)> eeyan;                               // 0x07C8(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	class UWBP_ChooseBody_C*                      ChooseBody;                                        // 0x07D8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
 	bool                                          CanPenterationForce;                               // 0x07E0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          WidgetVisibileState;                               // 0x07E1(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void TeleportMovie();
@@ -47,9 +48,10 @@ public:
 	void OnNamePlateVisibilityChange(bool Visibility);
 	class AActor* NearSurvivor_IgnoreSelf(const struct FVector& Location, const struct FVector& Direction, float* OutDotProduct);
 	void InpActEvt_U_K2Node_InputDebugKeyEvent_0(const struct FKey& Key, const struct FInputActionValue& ActionValue);
-	void InpActEvt_Three_K2Node_InputKeyEvent_2(const struct FKey& Key);
-	void InpActEvt_Six_K2Node_InputKeyEvent_1(const struct FKey& Key);
-	void InpActEvt_G_K2Node_InputKeyEvent_0(const struct FKey& Key);
+	void InpActEvt_Three_K2Node_InputKeyEvent_3(const struct FKey& Key);
+	void InpActEvt_Six_K2Node_InputKeyEvent_2(const struct FKey& Key);
+	void InpActEvt_G_K2Node_InputKeyEvent_1(const struct FKey& Key);
+	void InpActEvt_Ctrl_Shift_H_K2Node_InputKeyEvent_0(const struct FKey& Key);
 	void GetPawnCentorLocation(struct FVector* ReturnLocation);
 	void Finish();
 	void ExecuteUbergraph_BP_PlayerController_cLeon(int32 EntryPoint);

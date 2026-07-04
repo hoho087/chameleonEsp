@@ -314,6 +314,20 @@ void ABP_GameState_cLeon_C::SetCopyTarget()
 }
 
 
+// Function BP_GameState_cLeon.BP_GameState_cLeon_C.SetChickenAlpha
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void ABP_GameState_cLeon_C::SetChickenAlpha()
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_GameState_cLeon_C", "SetChickenAlpha");
+
+	UObject::ProcessEvent(Func, nullptr);
+}
+
+
 // Function BP_GameState_cLeon.BP_GameState_cLeon_C.ReceiveBeginPlay
 // (Event, Protected, BlueprintEvent)
 
@@ -531,7 +545,7 @@ void ABP_GameState_cLeon_C::OnRep_CurrentPreviewMapData()
 
 
 // Function BP_GameState_cLeon.BP_GameState_cLeon_C.OnRep_ChickenSearchTarget
-// (HasDefaults, BlueprintCallable, BlueprintEvent)
+// (BlueprintCallable, BlueprintEvent)
 
 void ABP_GameState_cLeon_C::OnRep_ChickenSearchTarget()
 {

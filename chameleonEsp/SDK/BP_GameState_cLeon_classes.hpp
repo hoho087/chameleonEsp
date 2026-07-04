@@ -10,14 +10,14 @@
 
 #include "Basic.hpp"
 
+#include "EN_cLeonMainGamePhase_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
+#include "ST_cLeonSurvivorVariation_structs.hpp"
+#include "CoreUObject_structs.hpp"
 #include "EN_cLeonGamePhase_structs.hpp"
 #include "EN_cLeonGameMode_structs.hpp"
 #include "ST_cLeonMapData_structs.hpp"
-#include "EN_cLeonMainGamePhase_structs.hpp"
-#include "CoreUObject_structs.hpp"
-#include "ST_cLeonSurvivorVariation_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -107,6 +107,7 @@ public:
 	void SetSyncRankingLoopState(bool State);
 	void SetMaxTimerTime(int32 MaxTimerTime);
 	void SetCopyTarget();
+	void SetChickenAlpha();
 	void ReceiveBeginPlay();
 	void RankingWidgetUpdate(bool IsShow);
 	void PlayTeleportMovie();

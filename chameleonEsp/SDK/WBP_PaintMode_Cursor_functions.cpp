@@ -78,6 +78,26 @@ void UWBP_PaintMode_Cursor_C::SetCursorPosition(const struct FVector2D& SetValue
 }
 
 
+// Function WBP_PaintMode_Cursor.WBP_PaintMode_Cursor_C.SelectSlide
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int32                                   AddValue                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_PaintMode_Cursor_C::SelectSlide(int32 AddValue)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_PaintMode_Cursor_C", "SelectSlide");
+
+	Params::WBP_PaintMode_Cursor_C_SelectSlide Parms{};
+
+	Parms.AddValue = AddValue;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
 // Function WBP_PaintMode_Cursor.WBP_PaintMode_Cursor_C.PreConstruct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
@@ -109,6 +129,30 @@ void UWBP_PaintMode_Cursor_C::PaintViewLookUpdate()
 		Func = Class->GetFunction("WBP_PaintMode_Cursor_C", "PaintViewLookUpdate");
 
 	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function WBP_PaintMode_Cursor.WBP_PaintMode_Cursor_C.OnGBufferColorPicked
+// (HasOutParams, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// const struct FLinearColor&              PickedColor                                            (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// float                                   PickedMetallic                                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// float                                   PickedRoughness                                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_PaintMode_Cursor_C::OnGBufferColorPicked(const struct FLinearColor& PickedColor, float PickedMetallic, float PickedRoughness)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_PaintMode_Cursor_C", "OnGBufferColorPicked");
+
+	Params::WBP_PaintMode_Cursor_C_OnGBufferColorPicked Parms{};
+
+	Parms.PickedColor = std::move(PickedColor);
+	Parms.PickedMetallic = PickedMetallic;
+	Parms.PickedRoughness = PickedRoughness;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
@@ -270,6 +314,50 @@ void UWBP_PaintMode_Cursor_C::BndEvt__WBP_PaintMode_Cursor_WBP_ImageHoverButton_
 		Func = Class->GetFunction("WBP_PaintMode_Cursor_C", "BndEvt__WBP_PaintMode_Cursor_WBP_ImageHoverButton_K2Node_ComponentBoundEvent_1_OnClick__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
+}
+
+
+// Function WBP_PaintMode_Cursor.WBP_PaintMode_Cursor_C.BndEvt__WBP_PaintMode_Cursor_WBP_ControllerColorPalet_K2Node_ComponentBoundEvent_0_UpdateParamaterValues__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// const struct FLinearColor&              Color                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// double                                  Metallic                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// double                                  Roughness                                              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_PaintMode_Cursor_C::BndEvt__WBP_PaintMode_Cursor_WBP_ControllerColorPalet_K2Node_ComponentBoundEvent_0_UpdateParamaterValues__DelegateSignature(const struct FLinearColor& Color, double Metallic, double Roughness)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_PaintMode_Cursor_C", "BndEvt__WBP_PaintMode_Cursor_WBP_ControllerColorPalet_K2Node_ComponentBoundEvent_0_UpdateParamaterValues__DelegateSignature");
+
+	Params::WBP_PaintMode_Cursor_C_BndEvt__WBP_PaintMode_Cursor_WBP_ControllerColorPalet_K2Node_ComponentBoundEvent_0_UpdateParamaterValues__DelegateSignature Parms{};
+
+	Parms.Color = std::move(Color);
+	Parms.Metallic = Metallic;
+	Parms.Roughness = Roughness;
+
+	UObject::ProcessEvent(Func, &Parms);
+}
+
+
+// Function WBP_PaintMode_Cursor.WBP_PaintMode_Cursor_C.AddSliderValue
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// double                                  Value                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+
+void UWBP_PaintMode_Cursor_C::AddSliderValue(double Value)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("WBP_PaintMode_Cursor_C", "AddSliderValue");
+
+	Params::WBP_PaintMode_Cursor_C_AddSliderValue Parms{};
+
+	Parms.Value = Value;
+
+	UObject::ProcessEvent(Func, &Parms);
 }
 
 
