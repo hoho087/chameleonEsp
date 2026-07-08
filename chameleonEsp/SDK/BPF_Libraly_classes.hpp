@@ -10,10 +10,10 @@
 
 #include "Basic.hpp"
 
-#include "HitMaterial_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
 #include "ENUM_SaveDataUpdateType_structs.hpp"
+#include "HitMaterial_structs.hpp"
 
 
 SDK_NAMESPACE_START

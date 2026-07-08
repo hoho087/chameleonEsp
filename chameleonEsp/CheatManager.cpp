@@ -120,8 +120,13 @@ void CheatManager::Init()
 				if (!hunter)
 					continue;
 
-				if (cfg->bNoGunCooldown && IsObjectValid(hunter))
+				hunter->IsChater = false;
+				hunter->CheatCheck = 0;
+
+				if (cfg->bNoGunCooldown && IsObjectValid(hunter)) {
 					hunter->GunCoolTime = 0.0;
+					hunter->Gun_Cool_TimeDefault = 0.0;
+				}
 
 				if (cfg->bInfiniteBullets && IsObjectValid(hunter))
 					hunter->InfinityBullet = true;

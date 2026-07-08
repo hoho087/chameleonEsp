@@ -18,7 +18,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_FirstPersonCharacter_cLeon_Character_Hunter.BP_FirstPersonCharacter_cLeon_Character_Hunter_C
-// 0x00D0 (0x0DA0 - 0x0CD0)
+// 0x00E0 (0x0DB0 - 0x0CD0)
 class ABP_FirstPersonCharacter_cLeon_Character_Hunter_C final : public ABP_FirstPersonCharacter_cLeon_Character_C
 {
 public:
@@ -38,6 +38,11 @@ public:
 	class UMaterialInstanceDynamic*               LocalTarget;                                       // 0x0D88(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	int32                                         CurrentBullet;                                     // 0x0D90(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          InfinityBullet;                                    // 0x0D94(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_D95[0x3];                                      // 0x0D95(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	double                                        Gun_Cool_TimeDefault;                              // 0x0D98(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	bool                                          IsChater;                                          // 0x0DA0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_DA1[0x3];                                      // 0x0DA1(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         CheatCheck;                                        // 0x0DA4(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void UpdateRemainBullet(int32 BulletNum);

@@ -17,7 +17,7 @@
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_FirstPersonPlayerState_Online_cLeon.BP_FirstPersonPlayerState_Online_cLeon_C
-// 0x0060 (0x0418 - 0x03B8)
+// 0x00B0 (0x0468 - 0x03B8)
 class ABP_FirstPersonPlayerState_Online_cLeon_C final : public ABP_FirstPersonPlayerState_Online_C
 {
 public:
@@ -35,6 +35,7 @@ public:
 	int32                                         CurrentME_Point;                                   // 0x0400(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash)
 	int32                                         MEPoint;                                           // 0x0404(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	TMulticastInlineDelegate<void()>              MEChange;                                          // 0x0408(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TSet<class ABP_FirstPersonPlayerState_Online_cLeon_C*> RecivedPlayer;                            // 0x0418(0x0050)(Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance)
 
 public:
 	void WriteEEYANPoint();
