@@ -64,8 +64,7 @@ void CheatManager::Init()
 			// Skip decoys whose body is hidden - the game toggles the PoseableMesh's
 			// visibility off when the decoy isn't actually showing, and an invisible
 			// decoy shouldn't draw in ESP.
-			if (!decoy->PoseableMesh || !IsObjectValid(decoy->PoseableMesh) ||
-				!decoy->PoseableMesh->bVisible)
+			if (!decoy->PoseableMesh || !IsObjectValid(decoy->PoseableMesh) || !decoy->PoseableMesh->bVisible)
 				continue;
 
 			const auto Location = decoy->K2_GetActorLocation();
@@ -101,8 +100,7 @@ void CheatManager::Init()
 
 		const auto Location = baseClass->K2_GetActorLocation();
 		const std::string PlayerName = ResolvePlayerName(actor, baseClass);
-		const bool IsVisible = ctx.PlayerController->LineOfSightTo(
-			actor, { 0, 0, 0 }, false); // visible check
+		const bool IsVisible = ctx.PlayerController->LineOfSightTo(actor, { 0, 0, 0 }, false); // visible check
 
 		if (actor == ctx.MyPlayer)
 		{
