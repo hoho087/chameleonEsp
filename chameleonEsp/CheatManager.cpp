@@ -37,22 +37,18 @@ void CheatManager::Init()
 
 	const auto MyLocation = ctx.MyPlayer->K2_GetActorLocation();
 
-	ctx.PlayerController->FOV(cfg->bFovChanger ? cfg->fFovValue
-		: 90); // fov changer
+	ctx.PlayerController->FOV(cfg->bFovChanger ? cfg->fFovValue : 90); // fov changer
 
 	// get players
 	SDK::TArray<SDK::AActor*> Players;
-	ctx.GStatics->GetAllActorsOfClass(
-		ctx.World, SDK::ABP_FirstPersonCharacter_cLeon_Character_C::StaticClass(),
-		&Players);
+	ctx.GStatics->GetAllActorsOfClass(ctx.World, SDK::ABP_FirstPersonCharacter_cLeon_Character_C::StaticClass(), &Players);
 
 	// Decoys ride the same entries/draw path as players (role 3). They have no
 	// team, so Enemy Only never hides them - the toggle is the only gate.
 	if (cfg->bDecoys)
 	{
 		SDK::TArray<SDK::AActor*> Decoys;
-		ctx.GStatics->GetAllActorsOfClass(
-			ctx.World, SDK::ABP_cLeonDecoy_Base_C::StaticClass(), &Decoys);
+		ctx.GStatics->GetAllActorsOfClass(ctx.World, SDK::ABP_cLeonDecoy_Base_C::StaticClass(), &Decoys);
 		for (int i = 0; i < Decoys.Num(); i++)
 		{
 			if (!Decoys.IsValidIndex(i))
@@ -92,8 +88,7 @@ void CheatManager::Init()
 		SDK::AActor* actor = Players[i];
 		if (!actor || !IsObjectValid(actor))
 			continue;
-		auto* baseClass =
-			static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_C*>(actor);
+		auto* baseClass = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_C*>(actor);
 		if (!baseClass)
 			continue;
 
@@ -114,56 +109,57 @@ void CheatManager::Init()
 			// Hunter
 			if (IsHunter(baseClass))
 			{
-				auto* hunter = static_cast<
-					SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C*>(baseClass);
+				auto* hunter = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C*>(baseClass);
 
 				if (!hunter)
 					continue;
 
-				hunter->IsChater = false;
-				hunter->CheatCheck = 0;
+				if (IsObjectValid(hunter))
+				{
+					hunter->IsChater = false;
+					hunter->CheatCheck = 0;
 
-				if (cfg->bNoGunCooldown && IsObjectValid(hunter)) {
-					hunter->GunCoolTime = 0.0;
-					hunter->Gun_Cool_TimeDefault = 0.0;
+					if (cfg->bNoGunCooldown) {
+						hunter->GunCoolTime = 0.0;
+						hunter->Gun_Cool_TimeDefault = 0.0;
+					}
+
+					if (cfg->bInfiniteBullets)
+						hunter->InfinityBullet = true;
 				}
 
-				if (cfg->bInfiniteBullets && IsObjectValid(hunter))
-					hunter->InfinityBullet = true;
-
 				if (cfg->bMagnetEnabled)
-					HandleMagnet(ctx.MyPlayer, actor, currentActors, MyLocation, Players,
-						snap);
+					HandleMagnet(ctx.MyPlayer, actor, currentActors, MyLocation, Players, snap);
 			}
 			// Survivor
 			else if (IsSurvivor(baseClass))
 			{
-				auto* survivor = static_cast<
-					SDK::ABP_FirstPersonCharacter_cLeon_Character_Survivor_C*>(
-						baseClass);
+				auto* survivor = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Survivor_C*>(baseClass);
 
 				if (!survivor)
 					continue;
 
-				if (cfg->bAntiDetection && IsObjectValid(survivor))
-					survivor->OverlapCheckCapsules.Clear();
-
-				if (cfg->bNoDecoyCooldown && IsObjectValid(survivor))
+				if (IsObjectValid(survivor))
 				{
-					for (int i = 0; i < survivor->DecoyCoolTimes.Num(); i++)
+					if (cfg->bAntiDetection)
+						survivor->OverlapCheckCapsules.Clear();
+
+					if (cfg->bNoDecoyCooldown)
 					{
-						if (!survivor->DecoyCoolTimes.IsValidIndex(i))
-							continue;
-						survivor->DecoyCoolTimes[i] = 30.0;
+						for (int i = 0; i < survivor->DecoyCoolTimes.Num(); i++)
+						{
+							if (!survivor->DecoyCoolTimes.IsValidIndex(i))
+								continue;
+							survivor->DecoyCoolTimes[i] = 30.0;
+						}
+						survivor->DecoyCoolTimeDefault = 30.0;
 					}
-					survivor->DecoyCoolTimeDefault = 30.0;
 				}
 			}
 			continue;
 		}
 
-		snap.players.push_back(
-			{ PlayerName, Location, actor, IsSurvivor(baseClass) });
+		snap.players.push_back({ PlayerName, Location, actor, IsSurvivor(baseClass) });
 
 		UpdateForcedVisibility(actor, baseClass);
 
@@ -177,8 +173,7 @@ void CheatManager::Init()
 			continue;
 
 		EspEntry entry;
-		BuildEspEntry(ctx.PlayerController, baseClass, entry, PlayerName, Location,
-			MyLocation, IsVisible);
+		BuildEspEntry(ctx.PlayerController, baseClass, entry, PlayerName, Location, MyLocation, IsVisible);
 		snap.entries.push_back(std::move(entry));
 	}
 
@@ -274,8 +269,7 @@ bool CheatManager::ResolveContext(FrameContext& ctx)
 	// Resolved purely as a readiness guard - the scan doesn't use it, but a null
 	// here means the engine's kismet libraries aren't up yet, so we treat the
 	// world as not ready.
-	auto* mathLib =
-		(SDK::UKismetMathLibrary*)SDK::UKismetMathLibrary::StaticClass();
+	auto* mathLib = (SDK::UKismetMathLibrary*)SDK::UKismetMathLibrary::StaticClass();
 	if (!mathLib)
 		return false;
 
@@ -309,8 +303,7 @@ std::string CheatManager::ResolvePlayerName(
 	SDK::FString* Name = &baseClass->PlayerState->PlayerNamePrivate;
 	if (baseClass->PlayerState->IsA(SDK::ABP_FirstPersonPlayerState_Online_C::StaticClass()))
 	{
-		auto* ps = static_cast<SDK::ABP_FirstPersonPlayerState_Online_C*>(
-			baseClass->PlayerState);
+		auto* ps = static_cast<SDK::ABP_FirstPersonPlayerState_Online_C*>(baseClass->PlayerState);
 		if (ps->CustomPlayerName.IsValid())
 			Name = &ps->CustomPlayerName;
 	}
@@ -338,8 +331,7 @@ void CheatManager::UpdateForcedVisibility(
 			// Resolve the function fresh from the object's current class at call time
 			// and invoke it directly, instead of the SDK wrapper's cached-once static
 			// which dangles after a round.
-			SDK::UFunction* fn = baseClass->Class->GetFunction(
-				"BP_FirstPersonCharacter_cLeon_Character_C", "OnRep_BodyVisibility");
+			SDK::UFunction* fn = baseClass->Class->GetFunction("BP_FirstPersonCharacter_cLeon_Character_C", "OnRep_BodyVisibility");
 			if (fn)
 			{
 				baseClass->BodyVisibility = true;
@@ -348,13 +340,11 @@ void CheatManager::UpdateForcedVisibility(
 		}
 		forcedVisibleActors.insert(actor);
 	}
-	else if (!cfg->bForceCharacterVisibility &&
-		forcedVisibleActors.count(actor))
+	else if (!cfg->bForceCharacterVisibility && forcedVisibleActors.count(actor))
 	{
 		if (IsObjectValid(baseClass))
 		{
-			SDK::UFunction* fn = baseClass->Class->GetFunction(
-				"BP_FirstPersonCharacter_cLeon_Character_C", "OnRep_BodyVisibility");
+			SDK::UFunction* fn = baseClass->Class->GetFunction("BP_FirstPersonCharacter_cLeon_Character_C", "OnRep_BodyVisibility");
 			if (fn)
 			{
 				baseClass->BodyVisibility = false;
@@ -464,7 +454,8 @@ void CheatManager::BuildSkeletonLines(
 // Build a 2D bounding box from every bone's screen position so it stays correct
 // in any pose (crouch, prone, etc.). Returns false when no bone projected
 // on-screen.
-bool CheatManager::ComputeBoundingBox(SDK::APlayerController* pc,
+bool CheatManager::ComputeBoundingBox(
+	SDK::APlayerController* pc,
 	SDK::USkinnedMeshComponent* mesh,
 	SDK::FVector2D& BoxMin,
 	SDK::FVector2D& BoxMax)
@@ -728,12 +719,12 @@ void CheatManager::HandleMagnet(
 
 void CheatManager::KillSurvivor(SDK::APawn* myPlayer, SDK::AActor* actor)
 {
-	if (!myPlayer || !actor || myPlayer == actor || !IsHunter(myPlayer) ||
-		!IsSurvivor(actor) || IsDead(actor))
+	if (!myPlayer || !actor || myPlayer == actor || !IsHunter(myPlayer) || !IsSurvivor(actor) || IsDead(actor))
 		return;
 
 	auto* hunter = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Hunter_C*>(myPlayer);
 	auto* survivor = static_cast<SDK::ABP_FirstPersonCharacter_cLeon_Character_Survivor_C*>(actor);
+
 	if (!IsObjectValid(hunter) || !IsObjectValid(survivor))
 		return;
 
