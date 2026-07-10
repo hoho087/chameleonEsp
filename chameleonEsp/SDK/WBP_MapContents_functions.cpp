@@ -138,15 +138,15 @@ void UWBP_MapContents_C::Construct()
 }
 
 
-// Function WBP_MapContents.WBP_MapContents_C.BndEvt__WBP_CustomMapParts_LongTapButton_OnAnimation_K2Node_ComponentBoundEvent_0_PushEnd__DelegateSignature
+// Function WBP_MapContents.WBP_MapContents_C.BndEvt__WBP_MapContents_NavButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature
 // (BlueprintEvent)
 
-void UWBP_MapContents_C::BndEvt__WBP_CustomMapParts_LongTapButton_OnAnimation_K2Node_ComponentBoundEvent_0_PushEnd__DelegateSignature()
+void UWBP_MapContents_C::BndEvt__WBP_MapContents_NavButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature()
 {
 	static class UFunction* Func = nullptr;
 
 	if (Func == nullptr)
-		Func = Class->GetFunction("WBP_MapContents_C", "BndEvt__WBP_CustomMapParts_LongTapButton_OnAnimation_K2Node_ComponentBoundEvent_0_PushEnd__DelegateSignature");
+		Func = Class->GetFunction("WBP_MapContents_C", "BndEvt__WBP_MapContents_NavButton_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature");
 
 	UObject::ProcessEvent(Func, nullptr);
 }

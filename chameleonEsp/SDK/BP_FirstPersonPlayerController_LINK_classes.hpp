@@ -11,20 +11,20 @@
 #include "Basic.hpp"
 
 #include "Engine_structs.hpp"
-#include "EN_StanType_structs.hpp"
-#include "EN_DamageType_structs.hpp"
 #include "BP_FirstPersonPlayerController_classes.hpp"
+#include "EN_DamageType_structs.hpp"
+#include "EN_StanType_structs.hpp"
 #include "PhysicsCore_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_FirstPersonPlayerController_LINK.BP_FirstPersonPlayerController_LINK_C
-// 0x0008 (0x0770 - 0x0768)
+// 0x0008 (0x0778 - 0x0770)
 class ABP_FirstPersonPlayerController_LINK_C final : public ABP_FirstPersonPlayerController_C
 {
 public:
-	struct FPointerToUberGraphFrame               UberGraphFrame_BP_FirstPersonPlayerController_LINK_C; // 0x0768(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
+	struct FPointerToUberGraphFrame               UberGraphFrame_BP_FirstPersonPlayerController_LINK_C; // 0x0770(0x0008)(ZeroConstructor, Transient, DuplicateTransient)
 
 public:
 	void StanDamage(EN_StanType StanType);

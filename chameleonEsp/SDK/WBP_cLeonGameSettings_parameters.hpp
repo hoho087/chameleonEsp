@@ -25,7 +25,7 @@ struct WBP_cLeonGameSettings_C_SelectMapMain final
 {
 public:
 	class UWBP_MapContents_C*                     SelfWidget;                                        // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	struct FST_cLeonMapData                       MapData;                                           // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+	struct FST_cLeonMapData                       Mapdata;                                           // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_WBP_cLeonGameSettings_C_SelectMapMain;
 
@@ -35,7 +35,7 @@ struct WBP_cLeonGameSettings_C_SelectMap final
 {
 public:
 	class UWBP_MapContents_C*                     SelfWidget;                                        // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	struct FST_cLeonMapData                       MapData;                                           // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
+	struct FST_cLeonMapData                       Mapdata;                                           // 0x0008(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_WBP_cLeonGameSettings_C_SelectMap;
 
@@ -85,7 +85,7 @@ public:
 	int32                                         CallFunc_Array_Length_ReturnValue_1;               // 0x00B8(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          Temp_bool_Variable;                                // 0x00BC(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_BD[0x3];                                       // 0x00BD(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	TDelegate<void(class UWBP_MapContents_C* SelfWidget, const struct FST_cLeonMapData& MapData)> K2Node_CreateDelegate_OutputDelegate; // 0x00C0(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
+	TDelegate<void(class UWBP_MapContents_C* SelfWidget, const struct FST_cLeonMapData& Mapdata)> K2Node_CreateDelegate_OutputDelegate; // 0x00C0(0x0010)(ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_IsValid_ReturnValue_3;                    // 0x00D0(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	bool                                          CallFunc_IsValid_ReturnValue_4;                    // 0x00D1(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_D2[0x6];                                       // 0x00D2(0x0006)(Fixing Size After Last Property [ Dumper-7 ])

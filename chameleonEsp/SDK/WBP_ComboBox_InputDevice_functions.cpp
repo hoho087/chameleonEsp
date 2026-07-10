@@ -51,7 +51,7 @@ void UWBP_ComboBox_InputDevice_C::PreConstruct(bool IsDesignTime_PreConstruct)
 
 
 // Function WBP_ComboBox_InputDevice.WBP_ComboBox_InputDevice_C.ExecuteUbergraph_WBP_ComboBox_InputDevice
-// (Final, UbergraphFunction, HasDefaults)
+// (Final, UbergraphFunction)
 // Parameters:
 // int32                                   EntryPoint                                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 

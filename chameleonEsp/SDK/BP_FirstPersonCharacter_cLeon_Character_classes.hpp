@@ -12,16 +12,17 @@
 
 #include "CoreUObject_structs.hpp"
 #include "Engine_structs.hpp"
-#include "SlateCore_structs.hpp"
-#include "ST_ItemCoreDatas_structs.hpp"
-#include "Mover_structs.hpp"
 #include "BP_FirstPersonCharacter_Main_classes.hpp"
+#include "ST_ItemCoreDatas_structs.hpp"
+#include "SlateCore_structs.hpp"
+#include "UINavigation_structs.hpp"
+#include "Mover_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_FirstPersonCharacter_cLeon_Character.BP_FirstPersonCharacter_cLeon_Character_C
-// 0x01A0 (0x0CD0 - 0x0B30)
+// 0x01B0 (0x0CE0 - 0x0B30)
 #pragma pack(push, 0x1)
 class SDK_ALIGN(0x10) ABP_FirstPersonCharacter_cLeon_Character_C : public ABP_FirstPersonCharacter_Main_C
 {
@@ -87,6 +88,9 @@ public:
 	double                                        DecoyCoolTimeDefault;                              // 0x0CB0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	class UClass*                                 DecoyActorClass;                                   // 0x0CB8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash)
 	bool                                          CanZoom;                                           // 0x0CC0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_CC1[0x7];                                      // 0x0CC1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UUINavPCComponent*                      UINavComp;                                         // 0x0CC8(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	class UBPGI_Main_C*                           BPGI_Main;                                         // 0x0CD0(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void ExecuteUbergraph_BP_FirstPersonCharacter_cLeon_Character(int32 EntryPoint);

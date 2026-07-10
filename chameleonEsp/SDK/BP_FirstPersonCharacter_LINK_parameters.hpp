@@ -10,22 +10,22 @@
 
 #include "Basic.hpp"
 
-#include "EN_DamageType_structs.hpp"
-#include "ENUM_HandType_structs.hpp"
-#include "EN_LINK_PlayerStateValueType_structs.hpp"
-#include "ENUM_ClassType_structs.hpp"
+#include "InputCore_structs.hpp"
 #include "ST_ItemCoreDatas_structs.hpp"
-#include "ENUM_ItemBindType_structs.hpp"
+#include "EN_LINK_PlayerStateValueType_structs.hpp"
+#include "ENUM_HandType_structs.hpp"
+#include "ENUM_ClassType_structs.hpp"
 #include "EnhancedInput_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "ENUM_ItemBindType_structs.hpp"
+#include "EN_DamageType_structs.hpp"
 #include "FinishFilter_structs.hpp"
 #include "Engine_structs.hpp"
-#include "InputCore_structs.hpp"
 #include "OnlineSubsystemBlueprints_structs.hpp"
 #include "PenguinHotel_structs.hpp"
 #include "EN_LINK_GamePhase_structs.hpp"
-#include "GameplayAbilities_structs.hpp"
 #include "Mover_structs.hpp"
+#include "GameplayAbilities_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -811,8 +811,8 @@ public:
 	double                                        CallFunc_Divide_DoubleDouble_ReturnValue;          // 0x0050(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                        CallFunc_MultiplyMultiply_FloatFloat_ReturnValue;  // 0x0058(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	double                                        CallFunc_Subtract_DoubleDouble_ReturnValue_2;      // 0x0060(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        CallFunc_SelectFloat_ReturnValue;                  // 0x0068(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	double                                        CallFunc_Multiply_DoubleDouble_ReturnValue;        // 0x0070(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        CallFunc_SelectFloat_ReturnValue_GetMoveSpeedMultiply; // 0x0068(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	double                                        CallFunc_Multiply_DoubleDouble_ReturnValue_GetMoveSpeedMultiply; // 0x0070(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 };
 DUMPER7_ASSERTS_BP_FirstPersonCharacter_LINK_C_GetMoveSpeedMultiply;
 

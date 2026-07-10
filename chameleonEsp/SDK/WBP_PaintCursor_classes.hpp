@@ -33,6 +33,7 @@ public:
 	void Tick(const struct FGeometry& MyGeometry_Tick, float InDeltaTime_Tick);
 	void SetPickVisibility(bool Visibility);
 	void PreConstruct(bool IsDesignTime_PreConstruct);
+	void IsZoom(bool State);
 	void ExecuteUbergraph_WBP_PaintCursor(int32 EntryPoint);
 	void Construct();
 

@@ -12,12 +12,12 @@
 
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "EN_cLeonGameMode_structs.hpp"
 #include "EN_cLeonGamePhase_structs.hpp"
-#include "EN_cLeonMainGamePhase_structs.hpp"
 #include "ST_cLeonMapData_structs.hpp"
-#include "ST_cLeonSurvivorVariation_structs.hpp"
+#include "EN_cLeonGameMode_structs.hpp"
+#include "EN_cLeonMainGamePhase_structs.hpp"
 #include "CoreUObject_structs.hpp"
+#include "ST_cLeonSurvivorVariation_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -67,7 +67,7 @@ public:
 	TMulticastInlineDelegate<void(class ABP_FirstPersonPlayerState_Online_C* TargetPlayer, class ABP_FirstPersonPlayerState_Online_cLeon_C* SourcePlayer, int32 PointValue)> AddPointpopup; // 0x0490(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	int32                                         UpdateTime;                                        // 0x04A0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_4A4[0x4];                                      // 0x04A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FST_cLeonMapData                       CurrentMapData;                                    // 0x04A8(0x0018)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	struct FST_cLeonMapData                       CurrentMapData;                                    // 0x04A8(0x0018)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
 	bool                                          MapDataLayers;                                     // 0x04C0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_4C1[0x7];                                      // 0x04C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FST_cLeonMapData>               DefaultMapDatas;                                   // 0x04C8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
@@ -81,7 +81,7 @@ public:
 	TArray<struct FST_cLeonSurvivorVariation>     SurvivorVariations;                                // 0x0530(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
 	TMulticastInlineDelegate<void(int32 Num)>     InitDecoyWidget;                                   // 0x0540(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	TMulticastInlineDelegate<void(const TArray<double>& CoolTimes)> UpdateDecoyCoolTime;             // 0x0550(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	TMulticastInlineDelegate<void(const struct FST_cLeonMapData& MapData)> MapDataUpdate;            // 0x0560(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TMulticastInlineDelegate<void(const struct FST_cLeonMapData& Mapdata)> MapDataUpdate;            // 0x0560(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	TMulticastInlineDelegate<void(int32 Current, int32 max_0)> PlayerNumUpdate;                      // 0x0570(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	struct FIntVector2                            JoinPlayerState;                                   // 0x0580(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash)
 	int32                                         MaxBullet;                                         // 0x0588(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)

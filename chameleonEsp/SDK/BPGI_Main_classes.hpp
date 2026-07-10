@@ -11,13 +11,15 @@
 #include "Basic.hpp"
 
 #include "Engine_structs.hpp"
+#include "EN_InputJudgementType_structs.hpp"
+#include "UINavigation_structs.hpp"
 #include "RedpointEOSFramework_classes.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BPGI_Main.BPGI_Main_C
-// 0x0050 (0x0278 - 0x0228)
+// 0x0080 (0x02A8 - 0x0228)
 class UBPGI_Main_C final : public URedpointGameInstance
 {
 public:
@@ -30,10 +32,17 @@ public:
 	uint8                                         Pad_259[0x7];                                      // 0x0259(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
 	TMulticastInlineDelegate<void(bool Rezult)>   CloudSaveSyncState;                                // 0x0260(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	bool                                          CloudSaveCheck;                                    // 0x0270(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_271[0x7];                                      // 0x0271(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(EInputType InputType)> UpdateInputDeviceAll;                       // 0x0278(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	EInputType                                    LastInputDeviceAll;                                // 0x0288(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_289[0x7];                                      // 0x0289(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 DefaultControllerName;                             // 0x0290(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
+	EN_InputJudgementType                         InputJType;                                        // 0x02A0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void CloudSaveSync();
 	void ExecuteUbergraph_BPGI_Main(int32 EntryPoint);
+	void GetBPGI_Main(class UBPGI_Main_C** Object);
 	void OnCallFailed_0646E9BD4A18BBF176FCAEA43F9771E1(bool bWasSuccessful, const struct FUniqueNetIdRepl& UserId, const class FString& Filename, int64 BytesWritten);
 	void OnCallFailed_0646E9BD4A18BBF176FCAEA44F5EA191(bool bWasSuccessful, const struct FUniqueNetIdRepl& UserId, const class FString& Filename, int64 BytesWritten);
 	void OnCallFailed_4473CEAA43FDA8DFD02079B1F2500B1B(bool bWasSuccessful, const struct FUniqueNetIdRepl& UserId, const class FString& Filename);
@@ -45,6 +54,8 @@ public:
 	void OnWriteUserFileProgress64_0646E9BD4A18BBF176FCAEA43F9771E1(bool bWasSuccessful, const struct FUniqueNetIdRepl& UserId, const class FString& Filename, int64 BytesWritten);
 	void OnWriteUserFileProgress64_0646E9BD4A18BBF176FCAEA44F5EA191(bool bWasSuccessful, const struct FUniqueNetIdRepl& UserId, const class FString& Filename, int64 BytesWritten);
 	void ReceiveInit();
+	void UpdateInputJType(EN_InputJudgementType InputJType_0);
+	void UpdateLastInputDeviceAll(EInputType LastInputDeviceAll_0);
 	void UpdateSettings();
 
 public:
