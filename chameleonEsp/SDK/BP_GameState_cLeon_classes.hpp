@@ -10,20 +10,20 @@
 
 #include "Basic.hpp"
 
+#include "EN_cLeonMainGamePhase_structs.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
 #include "EN_cLeonGamePhase_structs.hpp"
-#include "ST_cLeonMapData_structs.hpp"
 #include "EN_cLeonGameMode_structs.hpp"
-#include "EN_cLeonMainGamePhase_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "ST_cLeonSurvivorVariation_structs.hpp"
+#include "ST_cLeonMapData_structs.hpp"
 
 
 SDK_NAMESPACE_START
 
 // BlueprintGeneratedClass BP_GameState_cLeon.BP_GameState_cLeon_C
-// 0x02B8 (0x05B8 - 0x0300)
+// 0x02D8 (0x05D8 - 0x0300)
 class ABP_GameState_cLeon_C final : public AGameStateBase
 {
 public:
@@ -67,28 +67,28 @@ public:
 	TMulticastInlineDelegate<void(class ABP_FirstPersonPlayerState_Online_C* TargetPlayer, class ABP_FirstPersonPlayerState_Online_cLeon_C* SourcePlayer, int32 PointValue)> AddPointpopup; // 0x0490(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
 	int32                                         UpdateTime;                                        // 0x04A0(0x0004)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	uint8                                         Pad_4A4[0x4];                                      // 0x04A4(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FST_cLeonMapData                       CurrentMapData;                                    // 0x04A8(0x0018)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, HasGetValueTypeHash)
-	bool                                          MapDataLayers;                                     // 0x04C0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_4C1[0x7];                                      // 0x04C1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FST_cLeonMapData>               DefaultMapDatas;                                   // 0x04C8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TArray<struct FST_cLeonMapData>               ModMapDatas;                                       // 0x04D8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	struct FST_cLeonMapData                       CurrentPreviewMapData;                             // 0x04E8(0x0018)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, RepNotify, HasGetValueTypeHash)
-	class FString                                 NeedModId;                                         // 0x0500(0x0010)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, RepNotify, HasGetValueTypeHash)
-	class UWBP_ModQueueAll_C*                     ModQueue;                                          // 0x0510(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
-	TMulticastInlineDelegate<void()>              ModComplete;                                       // 0x0518(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	bool                                          CanHunterShowWatchRanking;                         // 0x0528(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_529[0x7];                                      // 0x0529(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FST_cLeonSurvivorVariation>     SurvivorVariations;                                // 0x0530(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
-	TMulticastInlineDelegate<void(int32 Num)>     InitDecoyWidget;                                   // 0x0540(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	TMulticastInlineDelegate<void(const TArray<double>& CoolTimes)> UpdateDecoyCoolTime;             // 0x0550(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	TMulticastInlineDelegate<void(const struct FST_cLeonMapData& Mapdata)> MapDataUpdate;            // 0x0560(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	TMulticastInlineDelegate<void(int32 Current, int32 max_0)> PlayerNumUpdate;                      // 0x0570(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	struct FIntVector2                            JoinPlayerState;                                   // 0x0580(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash)
-	int32                                         MaxBullet;                                         // 0x0588(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-	uint8                                         Pad_58C[0x4];                                      // 0x058C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TMulticastInlineDelegate<void(int32 max_0, int32 Current)> BulletUpdate;                         // 0x0590(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	TMulticastInlineDelegate<void()>              WinnerCheck;                                       // 0x05A0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
-	class ABP_FirstPersonCharacter_cLeon_Character_Survivor_C* ChickenSearchTarget;                  // 0x05B0(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, RepNotify, NoDestructor, HasGetValueTypeHash)
+	struct FST_cLeonMapData                       CurrentMapData;                                    // 0x04A8(0x0028)(Edit, BlueprintVisible, Net, DisableEditOnInstance, HasGetValueTypeHash)
+	bool                                          MapDataLayers;                                     // 0x04D0(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_4D1[0x7];                                      // 0x04D1(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FST_cLeonMapData>               DefaultMapDatas;                                   // 0x04D8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TArray<struct FST_cLeonMapData>               ModMapDatas;                                       // 0x04E8(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FST_cLeonMapData                       CurrentPreviewMapData;                             // 0x04F8(0x0028)(Edit, BlueprintVisible, Net, DisableEditOnInstance, RepNotify, HasGetValueTypeHash)
+	class FString                                 NeedModId;                                         // 0x0520(0x0010)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, RepNotify, HasGetValueTypeHash)
+	class UWBP_ModQueueAll_C*                     ModQueue;                                          // 0x0530(0x0008)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, NoDestructor, HasGetValueTypeHash)
+	TMulticastInlineDelegate<void()>              ModComplete;                                       // 0x0538(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	bool                                          CanHunterShowWatchRanking;                         // 0x0548(0x0001)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_549[0x7];                                      // 0x0549(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FST_cLeonSurvivorVariation>     SurvivorVariations;                                // 0x0550(0x0010)(Edit, BlueprintVisible, DisableEditOnInstance)
+	TMulticastInlineDelegate<void(int32 Num)>     InitDecoyWidget;                                   // 0x0560(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TMulticastInlineDelegate<void(const TArray<double>& CoolTimes)> UpdateDecoyCoolTime;             // 0x0570(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TMulticastInlineDelegate<void(const struct FST_cLeonMapData& Mapdata)> MapDataUpdate;            // 0x0580(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TMulticastInlineDelegate<void(int32 Current, int32 max_0)> PlayerNumUpdate;                      // 0x0590(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	struct FIntVector2                            JoinPlayerState;                                   // 0x05A0(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash)
+	int32                                         MaxBullet;                                         // 0x05A8(0x0004)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	uint8                                         Pad_5AC[0x4];                                      // 0x05AC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TMulticastInlineDelegate<void(int32 max_0, int32 Current)> BulletUpdate;                         // 0x05B0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	TMulticastInlineDelegate<void()>              WinnerCheck;                                       // 0x05C0(0x0010)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable)
+	class ABP_FirstPersonCharacter_cLeon_Character_Survivor_C* ChickenSearchTarget;                  // 0x05D0(0x0008)(Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, RepNotify, NoDestructor, HasGetValueTypeHash)
 
 public:
 	void Winner(class ABP_FirstPersonPlayerState_Online_C* WinnerPlayerState);
@@ -130,6 +130,7 @@ public:
 	void KillLog(class ABP_FirstPersonPlayerState_Online_cLeon_C* HunterPlayerState, class ABP_FirstPersonPlayerState_Online_cLeon_C* SurvivorPlayerState);
 	void IsLivePlayerState(const class ABP_FirstPersonPlayerState_Online_cLeon_C*& ItemToFind, bool* IsLive);
 	void InitPlayerState();
+	void GetRandomMapData(struct FST_cLeonMapData* ReturnMapArray);
 	void GetDoubleRanking(TMap<class ABP_FirstPersonCharacter_cLeon_Character_Hunter_C*, int32>* ReturnMap);
 	void GetAllMapDatas(TArray<struct FST_cLeonMapData>* ReturnMapArray);
 	void GameEndSurvivorStop();

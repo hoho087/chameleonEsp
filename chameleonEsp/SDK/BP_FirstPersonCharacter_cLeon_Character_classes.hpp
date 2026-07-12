@@ -12,11 +12,11 @@
 
 #include "CoreUObject_structs.hpp"
 #include "Engine_structs.hpp"
+#include "SlateCore_structs.hpp"
+#include "Mover_structs.hpp"
 #include "BP_FirstPersonCharacter_Main_classes.hpp"
 #include "ST_ItemCoreDatas_structs.hpp"
-#include "SlateCore_structs.hpp"
 #include "UINavigation_structs.hpp"
-#include "Mover_structs.hpp"
 
 
 SDK_NAMESPACE_START
@@ -128,11 +128,11 @@ public:
 	void SetCastShadow(bool BodyShadow_0);
 	void PaintTick();
 	void SelectEmote(class UClass* EmoteData, int32 Index_0);
-	void ChangeViewMode(class FName ModeName, bool Quick);
+	void ChangeViewMode(class FName ModeName_ChangeViewMode, bool Quick_ChangeViewMode);
 	void PlayerControllerSetup();
 	void DeathPlayer();
 	void ReceiveRestarted();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds_ReceiveTick);
 	void ReceiveBeginPlay();
 	void DeltaUpdate();
 	void SetIsClimbing(bool IsClimbing_0);

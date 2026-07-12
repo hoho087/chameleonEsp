@@ -585,10 +585,10 @@ void ABP_FirstPersonCharacter_cLeon_Character_C::SelectEmote(class UClass* Emote
 // Function BP_FirstPersonCharacter_cLeon_Character.BP_FirstPersonCharacter_cLeon_Character_C.ChangeViewMode
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class FName                             ModeName                                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-// bool                                    Quick                                                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// class FName                             ModeName_ChangeViewMode                                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// bool                                    Quick_ChangeViewMode                                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_FirstPersonCharacter_cLeon_Character_C::ChangeViewMode(class FName ModeName, bool Quick)
+void ABP_FirstPersonCharacter_cLeon_Character_C::ChangeViewMode(class FName ModeName_ChangeViewMode, bool Quick_ChangeViewMode)
 {
 	static class UFunction* Func = nullptr;
 
@@ -597,8 +597,8 @@ void ABP_FirstPersonCharacter_cLeon_Character_C::ChangeViewMode(class FName Mode
 
 	Params::BP_FirstPersonCharacter_cLeon_Character_C_ChangeViewMode Parms{};
 
-	Parms.ModeName = ModeName;
-	Parms.Quick = Quick;
+	Parms.ModeName_ChangeViewMode = ModeName_ChangeViewMode;
+	Parms.Quick_ChangeViewMode = Quick_ChangeViewMode;
 
 	UObject::ProcessEvent(Func, &Parms);
 }
@@ -649,9 +649,9 @@ void ABP_FirstPersonCharacter_cLeon_Character_C::ReceiveRestarted()
 // Function BP_FirstPersonCharacter_cLeon_Character.BP_FirstPersonCharacter_cLeon_Character_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                                   DeltaSeconds                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// float                                   DeltaSeconds_ReceiveTick                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_FirstPersonCharacter_cLeon_Character_C::ReceiveTick(float DeltaSeconds)
+void ABP_FirstPersonCharacter_cLeon_Character_C::ReceiveTick(float DeltaSeconds_ReceiveTick)
 {
 	static class UFunction* Func = nullptr;
 
@@ -660,7 +660,7 @@ void ABP_FirstPersonCharacter_cLeon_Character_C::ReceiveTick(float DeltaSeconds)
 
 	Params::BP_FirstPersonCharacter_cLeon_Character_C_ReceiveTick Parms{};
 
-	Parms.DeltaSeconds = DeltaSeconds;
+	Parms.DeltaSeconds_ReceiveTick = DeltaSeconds_ReceiveTick;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

@@ -791,9 +791,9 @@ void ABP_FirstPersonCharacter_Main_C::AimEvent(bool State)
 // Function BP_FirstPersonCharacter_Main.BP_FirstPersonCharacter_Main_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                                   DeltaSeconds                                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+// float                                   DeltaSeconds_ReceiveTick                               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-void ABP_FirstPersonCharacter_Main_C::ReceiveTick(float DeltaSeconds)
+void ABP_FirstPersonCharacter_Main_C::ReceiveTick(float DeltaSeconds_ReceiveTick)
 {
 	static class UFunction* Func = nullptr;
 
@@ -802,7 +802,7 @@ void ABP_FirstPersonCharacter_Main_C::ReceiveTick(float DeltaSeconds)
 
 	Params::BP_FirstPersonCharacter_Main_C_ReceiveTick Parms{};
 
-	Parms.DeltaSeconds = DeltaSeconds;
+	Parms.DeltaSeconds_ReceiveTick = DeltaSeconds_ReceiveTick;
 
 	UObject::ProcessEvent(Func, &Parms);
 }

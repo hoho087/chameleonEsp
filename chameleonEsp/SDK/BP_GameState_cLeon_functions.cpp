@@ -668,6 +668,27 @@ void ABP_GameState_cLeon_C::InitPlayerState()
 }
 
 
+// Function BP_GameState_cLeon.BP_GameState_cLeon_C.GetRandomMapData
+// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FST_cLeonMapData*                ReturnMapArray                                         (Parm, OutParm, HasGetValueTypeHash)
+
+void ABP_GameState_cLeon_C::GetRandomMapData(struct FST_cLeonMapData* ReturnMapArray)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("BP_GameState_cLeon_C", "GetRandomMapData");
+
+	Params::BP_GameState_cLeon_C_GetRandomMapData Parms{};
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	if (ReturnMapArray != nullptr)
+		*ReturnMapArray = std::move(Parms.ReturnMapArray);
+}
+
+
 // Function BP_GameState_cLeon.BP_GameState_cLeon_C.GetDoubleRanking
 // (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
